@@ -3,6 +3,8 @@ Django Celery Logs
 
 |PyPI latest| |PyPI Version| |PyPI License| |GitHub Actions Status| |Coverage| |Docs| |Open Source? Yes!|
 
+Portuguese README: `README.pt.rst <README.pt.rst>`_.
+
 Django Celery Logs is a reusable Django app that records Celery task successes
 and failures, stores structured results and traceback data, and exposes the
 records in Django admin.
@@ -222,15 +224,15 @@ License
 
 MIT
 
-.. |PyPI latest| image:: https://img.shields.io/pypi/pyversions/django-celery-logs.svg
+.. |PyPI latest| image:: https://img.shields.io/pypi/pyversions/django_celery_logs.svg
    :target: https://pypi.org/project/django-celery-logs/
    :alt: Supported Python versions
 
-.. |PyPI Version| image:: https://img.shields.io/pypi/v/django-celery-logs.svg
+.. |PyPI Version| image:: https://img.shields.io/pypi/v/django_celery_logs.svg
    :target: https://pypi.org/project/django-celery-logs/
    :alt: PyPI version
 
-.. |PyPI License| image:: https://img.shields.io/pypi/l/django-celery-logs.svg
+.. |PyPI License| image:: https://img.shields.io/pypi/l/django_celery_logs.svg
    :target: https://pypi.org/project/django-celery-logs/
    :alt: License
 
