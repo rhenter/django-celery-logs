@@ -18,8 +18,11 @@ The list page also includes:
 The result preview helps teams scan recent executions directly from the list,
 without opening every task detail page.
 
-.. image:: _static/images/task-list-preview.png
+.. figure:: _static/images/task-list-preview.png
    :alt: Django Celery Logs task list with result preview
+   :width: 100%
+
+   Task list with result preview, auto-refresh, and collapsible filters.
 
 Task detail
 -----------
@@ -36,8 +39,11 @@ Failed task details include the full stacktrace and sanitized context variables
 captured at the moment of the error. This makes debugging production failures
 faster because the relevant local state is available alongside the traceback.
 
-.. image:: _static/images/interactive-stacktrace.png
+.. figure:: _static/images/interactive-stacktrace.png
    :alt: Django Celery Logs interactive stacktrace with context variables
+   :width: 100%
+
+   Interactive stacktrace with sanitized context variables.
 
 Task rerun
 ----------
@@ -69,5 +75,8 @@ The dashboard gives teams a quick operational view of Celery throughput,
 failures, queue distribution, workers, periodic tasks, slow tasks, and common
 errors.
 
-.. image:: _static/images/statistics.png
+.. figure:: _static/images/statistics.png
    :alt: Django Celery Logs statistics dashboard
+   :width: 100%
+
+   Statistics dashboard for Celery task monitoring.

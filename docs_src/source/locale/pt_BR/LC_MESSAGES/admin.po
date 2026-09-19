@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Django Celery Logs 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-19 15:30+0000\n"
+"POT-Creation-Date: 2026-09-19 15:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt_BR\n"
@@ -68,34 +68,38 @@ msgid "Django Celery Logs task list with result preview"
 msgstr "Listagem de tasks do Django Celery Logs com preview do resultado"
 
 #: ../../source/admin.rst:25
+msgid "Task list with result preview, auto-refresh, and collapsible filters."
+msgstr "Listagem de tasks com preview do resultado, auto-refresh e filtros retráteis."
+
+#: ../../source/admin.rst:28
 msgid "Task detail"
 msgstr "Detalhe da task"
 
-#: ../../source/admin.rst:27
+#: ../../source/admin.rst:30
 msgid "The task detail page is read-only and shows:"
 msgstr "A página de detalhe da task é somente leitura e mostra:"
 
-#: ../../source/admin.rst:29
+#: ../../source/admin.rst:32
 msgid "Task id, task name, periodic task name, queue, worker, and status."
 msgstr "Task id, nome da task, nome da task periódica, fila, worker e status."
 
-#: ../../source/admin.rst:30
+#: ../../source/admin.rst:33
 msgid "Args and kwargs."
 msgstr "Args e kwargs."
 
-#: ../../source/admin.rst:31
+#: ../../source/admin.rst:34
 msgid "Pretty JSON result output."
 msgstr "Resultado JSON formatado."
 
-#: ../../source/admin.rst:32
+#: ../../source/admin.rst:35
 msgid "Exception type and message for failures."
 msgstr "Tipo e mensagem da exceção em caso de falha."
 
-#: ../../source/admin.rst:33
+#: ../../source/admin.rst:36
 msgid "Interactive traceback details."
 msgstr "Detalhes interativos do traceback."
 
-#: ../../source/admin.rst:35
+#: ../../source/admin.rst:38
 msgid ""
 "Failed task details include the full stacktrace and sanitized context "
 "variables captured at the moment of the error. This makes debugging "
@@ -107,15 +111,19 @@ msgstr ""
 "falhas em produção porque o estado local relevante fica disponível junto do "
 "traceback."
 
-#: ../../source/admin.rst:39
+#: ../../source/admin.rst:42
 msgid "Django Celery Logs interactive stacktrace with context variables"
 msgstr "Stacktrace interativo do Django Celery Logs com variáveis de contexto"
 
-#: ../../source/admin.rst:43
+#: ../../source/admin.rst:46
+msgid "Interactive stacktrace with sanitized context variables."
+msgstr "Stacktrace interativo com variáveis de contexto sanitizadas."
+
+#: ../../source/admin.rst:49
 msgid "Task rerun"
 msgstr "Reexecutar task"
 
-#: ../../source/admin.rst:45
+#: ../../source/admin.rst:51
 msgid ""
 "The detail page includes a \"Re-run Task\" action. It sends the original "
 "task name, args, kwargs, and queue back to Celery using the current Celery "
@@ -125,11 +133,11 @@ msgstr ""
 " da task, args, kwargs e fila de volta para o Celery usando a app Celery "
 "atual."
 
-#: ../../source/admin.rst:49
+#: ../../source/admin.rst:55
 msgid "Statistics"
 msgstr "Estatísticas"
 
-#: ../../source/admin.rst:51
+#: ../../source/admin.rst:57
 msgid ""
 "The ``TaskLogStatistics`` proxy model exposes an admin dashboard with cards,"
 " charts, and tables for operational monitoring:"
@@ -137,59 +145,59 @@ msgstr ""
 "O proxy model ``TaskLogStatistics`` expõe um dashboard administrativo com "
 "cards, gráficos e tabelas para monitoramento operacional:"
 
-#: ../../source/admin.rst:54
+#: ../../source/admin.rst:60
 msgid "Total tasks."
 msgstr "Total de tasks."
 
-#: ../../source/admin.rst:55
+#: ../../source/admin.rst:61
 msgid "Successful and failed tasks."
 msgstr "Tasks com sucesso e falha."
 
-#: ../../source/admin.rst:56
+#: ../../source/admin.rst:62
 msgid "Success rate."
 msgstr "Taxa de sucesso."
 
-#: ../../source/admin.rst:57
+#: ../../source/admin.rst:63
 msgid "Average and maximum duration."
 msgstr "Duração média e máxima."
 
-#: ../../source/admin.rst:58
+#: ../../source/admin.rst:64
 msgid "Average messages per day, hour, and minute."
 msgstr "Média de mensagens por dia, hora e minuto."
 
-#: ../../source/admin.rst:59
+#: ../../source/admin.rst:65
 msgid "Tasks and failures per day."
 msgstr "Tasks e falhas por dia."
 
-#: ../../source/admin.rst:60
+#: ../../source/admin.rst:66
 msgid "Success vs failure distribution."
 msgstr "Distribuição de sucesso vs falha."
 
-#: ../../source/admin.rst:61
+#: ../../source/admin.rst:67
 msgid "Top queues."
 msgstr "Principais filas."
 
-#: ../../source/admin.rst:62
+#: ../../source/admin.rst:68
 msgid "Worker distribution."
 msgstr "Distribuição por worker."
 
-#: ../../source/admin.rst:63
+#: ../../source/admin.rst:69
 msgid "Periodic task distribution."
 msgstr "Distribuição de tasks periódicas."
 
-#: ../../source/admin.rst:64
+#: ../../source/admin.rst:70
 msgid "Top tasks."
 msgstr "Principais tasks."
 
-#: ../../source/admin.rst:65
+#: ../../source/admin.rst:71
 msgid "Slowest tasks."
 msgstr "Tasks mais lentas."
 
-#: ../../source/admin.rst:66
+#: ../../source/admin.rst:72
 msgid "Top error messages."
 msgstr "Principais mensagens de erro."
 
-#: ../../source/admin.rst:68
+#: ../../source/admin.rst:74
 msgid ""
 "The dashboard gives teams a quick operational view of Celery throughput, "
 "failures, queue distribution, workers, periodic tasks, slow tasks, and "
@@ -199,9 +207,13 @@ msgstr ""
 "Celery, falhas, distribuição por fila, workers, tasks periódicas, tasks "
 "lentas e erros comuns."
 
-#: ../../source/admin.rst:72
+#: ../../source/admin.rst:78
 msgid "Django Celery Logs statistics dashboard"
 msgstr "Dashboard de estatísticas do Django Celery Logs"
+
+#: ../../source/admin.rst:82
+msgid "Statistics dashboard for Celery task monitoring."
+msgstr "Dashboard de estatísticas para monitoramento de tasks Celery."
 
 #~ msgid "Collapsible filters."
 #~ msgstr "Filtros colapsáveis."

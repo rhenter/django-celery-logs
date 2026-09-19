@@ -170,9 +170,24 @@ The package includes Django admin templates and static assets for:
 * Task statistics with cards, charts, top tasks, slowest tasks, queue/worker
   distribution, periodic task distribution, and top error messages.
 
+Task list:
+
+.. image:: https://raw.githubusercontent.com/rhenter/django-celery-logs/main/docs_src/source/_static/images/task-list-preview.png
+   :alt: Django Celery Logs task list with result preview
+
 Failure tracebacks are stored as structured JSON and rendered interactively in
 the admin, including exception type, message, stack frames, and sanitized local
 variables from the frame context.
+
+Interactive stacktrace:
+
+.. image:: https://raw.githubusercontent.com/rhenter/django-celery-logs/main/docs_src/source/_static/images/interactive-stacktrace.png
+   :alt: Django Celery Logs interactive stacktrace with context variables
+
+Statistics dashboard:
+
+.. image:: https://raw.githubusercontent.com/rhenter/django-celery-logs/main/docs_src/source/_static/images/statistics.png
+   :alt: Django Celery Logs statistics dashboard
 
 Auto-refresh
 ~~~~~~~~~~~~

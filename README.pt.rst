@@ -176,9 +176,24 @@ O pacote inclui templates e assets estaticos para o Django admin:
   distribuicao por fila/worker, distribuicao de tasks periodicas e principais
   mensagens de erro.
 
+Listagem de tasks:
+
+.. image:: https://raw.githubusercontent.com/rhenter/django-celery-logs/main/docs_src/source/_static/images/task-list-preview.png
+   :alt: Listagem de tasks do Django Celery Logs com preview do resultado
+
 Tracebacks de falha sao armazenados como JSON estruturado e renderizados de
 forma interativa no admin, incluindo tipo da excecao, mensagem, frames da stack
 e variaveis locais sanitizadas do contexto do frame.
+
+Stacktrace interativo:
+
+.. image:: https://raw.githubusercontent.com/rhenter/django-celery-logs/main/docs_src/source/_static/images/interactive-stacktrace.png
+   :alt: Stacktrace interativo do Django Celery Logs com variaveis de contexto
+
+Dashboard de estatisticas:
+
+.. image:: https://raw.githubusercontent.com/rhenter/django-celery-logs/main/docs_src/source/_static/images/statistics.png
+   :alt: Dashboard de estatisticas do Django Celery Logs
 
 Auto-refresh
 ~~~~~~~~~~~~
