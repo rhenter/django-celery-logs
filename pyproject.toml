@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77", "wheel", "tomli>=2; python_version < '3.11'"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-celery-logs"
+version = "0.1.0"
+requires-python = ">=3.10"
+dynamic = [
+    "authors",
+    "classifiers",
+    "dependencies",
+    "description",
+    "keywords",
+    "license",
+    "readme",
+    "urls",
+]
+
+[project.optional-dependencies]
+dev = [
+    "build",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "pytest-django",
+    "setuptools>=64",
+    "sphinx",
+    "twine",
+    "wheel",
+]
