@@ -1,0 +1,214 @@
+{% extends "admin/change_list.html" %}
+{% load static i18n admin_urls admin_list %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'django_celery_logs/css/admin_filters.css' %}">
+    <style>
+        .auto-refresh-controls {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .auto-refresh-controls label {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .auto-refresh-controls select {
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        .auto-refresh-controls button {
+            padding: 5px 10px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .auto-refresh-controls button.active {
+            background: #417690;
+            color: white;
+        }
+
+        .auto-refresh-status {
+            margin-left: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script>
+        window.adminFiltersI18n = {
+            showFilters: "{% trans 'Show Filters' %}",
+            hideFilters: "{% trans 'Hide Filters' %}"
+        };
+        window.celeryLogsAutoRefreshI18n = {
+            disabled: "{% trans 'Auto refresh is disabled' %}",
+            enabled: "{% trans 'Auto refresh enabled' %}",
+            nextRefresh: "{% trans 'Next refresh in' %}",
+            seconds: "{% trans 'seconds' %}",
+            selectInterval: "{% trans 'Please select a refresh interval' %}"
+        };
+    </script>
+    <script src="{% static 'django_celery_logs/js/admin_filters.js' %}"></script>
+{% endblock %}
+
+{% block object-tools %}
+    {{ block.super }}
+    <div class="auto-refresh-controls">
+        <label for="refresh-interval">{% trans "Auto Refresh:" %}</label>
+        <select id="refresh-interval">
+            <option value="0">{% trans "Disabled" %}</option>
+            <option value="5">{% trans "5 seconds" %}</option>
+            <option value="10">{% trans "10 seconds" %}</option>
+            <option value="30">{% trans "30 seconds" %}</option>
+            <option value="60">{% trans "60 seconds" %}</option>
+        </select>
+        <button type="button" id="start-refresh">{% trans "Start Auto Refresh" %}</button>
+        <button type="button" id="stop-refresh">{% trans "Stop Auto Refresh" %}</button>
+        <span class="auto-refresh-status" id="refresh-status">{% trans "Auto refresh is disabled" %}</span>
+    </div>
+{% endblock %}
+
+{% block object-tools-items %}
+    <li>
+        <a href="{% url 'admin:celery_log_tasklogstatistics_changelist' %}" class="historylink">
+            {% trans "Celery Statistics" %}
+        </a>
+    </li>
+    <li>
+        <form method="get" style="display: inline-block; margin-left: 10px;">
+            <label for="list_per_page" style="margin-right: 5px;">{% trans "Items per page:" %}</label>
+            <select name="list_per_page" id="list_per_page" onchange="this.form.submit()" style="padding: 2px;">
+                {% for option in list_per_page_options %}
+                    <option value="{{ option }}" {% if option == selected_per_page %}selected{% endif %}>
+                        {{ option }}
+                    </option>
+                {% endfor %}
+            </select>
+            {% for key, value in request.GET.items %}
+                {% if key != "list_per_page" %}
+                    <input type="hidden" name="{{ key }}" value="{{ value }}">
+                {% endif %}
+            {% endfor %}
+        </form>
+    </li>
+    {{ block.super }}
+{% endblock %}
+
+{% block extrabody %}
+    {{ block.super }}
+    <script>
+        (function ($) {
+            let refreshTimer = null;
+            let countdownTimer = null;
+            let currentCountdown = 0;
+            const storageKey = "celery_log_auto_refresh";
+            const i18n = window.celeryLogsAutoRefreshI18n;
+
+            function saveRefreshState(enabled, interval) {
+                localStorage.setItem(storageKey, JSON.stringify({enabled: enabled, interval: interval}));
+            }
+
+            function getRefreshState() {
+                try {
+                    const state = localStorage.getItem(storageKey);
+                    return state ? JSON.parse(state) : {enabled: false, interval: 0};
+                } catch (e) {
+                    return {enabled: false, interval: 0};
+                }
+            }
+
+            function updateStatus(message) {
+                $("#refresh-status").text(message);
+            }
+
+            function updateCountdownDisplay() {
+                const interval = $("#refresh-interval").val();
+                if (interval > 0) {
+                    updateStatus(i18n.nextRefresh + " " + currentCountdown + " " + i18n.seconds);
+                }
+            }
+
+            function startCountdown(seconds) {
+                currentCountdown = seconds;
+                updateCountdownDisplay();
+
+                countdownTimer = setInterval(function () {
+                    currentCountdown--;
+                    if (currentCountdown <= 0) {
+                        clearInterval(countdownTimer);
+                        currentCountdown = seconds;
+                    }
+                    updateCountdownDisplay();
+                }, 1000);
+            }
+
+            function stopCountdown() {
+                if (countdownTimer) {
+                    clearInterval(countdownTimer);
+                    countdownTimer = null;
+                }
+            }
+
+            function stopAutoRefresh() {
+                if (refreshTimer) {
+                    clearInterval(refreshTimer);
+                    refreshTimer = null;
+                }
+                stopCountdown();
+                saveRefreshState(false, 0);
+                updateStatus(i18n.disabled);
+                $("#start-refresh").removeClass("active");
+                $("#stop-refresh").addClass("active");
+            }
+
+            function startAutoRefresh() {
+                const interval = parseInt($("#refresh-interval").val());
+                if (interval <= 0) {
+                    updateStatus(i18n.selectInterval);
+                    return;
+                }
+
+                stopAutoRefresh();
+                saveRefreshState(true, interval);
+                refreshTimer = setInterval(function () {
+                    window.location.reload();
+                }, interval * 1000);
+
+                startCountdown(interval);
+                updateStatus(i18n.enabled + " (" + interval + "s)");
+                $("#start-refresh").addClass("active");
+                $("#stop-refresh").removeClass("active");
+            }
+
+            $(document).ready(function () {
+                $("#start-refresh").click(startAutoRefresh);
+                $("#stop-refresh").click(stopAutoRefresh);
+                $("#refresh-interval").change(function () {
+                    if (refreshTimer) {
+                        startAutoRefresh();
+                    }
+                });
+
+                const savedState = getRefreshState();
+                if (savedState.enabled && savedState.interval > 0) {
+                    $("#refresh-interval").val(savedState.interval);
+                    startAutoRefresh();
+                } else {
+                    $("#stop-refresh").addClass("active");
+                }
+            });
+        })(django.jQuery);
+    </script>
+{% endblock %}

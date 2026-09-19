@@ -1,0 +1,325 @@
+{% extends "admin/change_list.html" %}
+{% load i18n static celery_logs_admin %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .stats-container {
+            margin: 20px 0;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card,
+        .chart-container {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #0073aa;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 20px;
+        }
+
+        .chart-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .statistics-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .statistics-table th,
+        .statistics-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .statistics-table th {
+            background-color: #f5f5f5;
+        }
+    </style>
+{% endblock %}
+
+{% block content_title %}
+    <h1>{% trans "Task Log Statistics" %}</h1>
+    <p class="description">{% blocktrans with days=days_to_show %}Statistics and charts for the last {{ days }} days{% endblocktrans %}</p>
+{% endblock %}
+
+{% block result_list %}
+    <div class="stats-container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">
+                    <a href="{% url 'admin:celery_log_tasklog_changelist' %}" style="color: #0073aa; text-decoration: none;">
+                        {{ statistics.total_messages }}
+                    </a>
+                </div>
+                <div class="stat-label">{% trans "Total Tasks" %}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">
+                    <a href="{% url 'admin:celery_log_tasklog_changelist' %}?status__exact=SUCCESS" style="color: #0073aa; text-decoration: none;">
+                        {{ statistics.total_success }}
+                    </a>
+                </div>
+                <div class="stat-label">{% trans "Successful Tasks" %}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">
+                    <a href="{% url 'admin:celery_log_tasklog_changelist' %}?status__exact=FAILURE" style="color: #0073aa; text-decoration: none;">
+                        {{ statistics.total_failure }}
+                    </a>
+                </div>
+                <div class="stat-label">{% trans "Failed Tasks" %}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ statistics.success_rate }}%</div>
+                <div class="stat-label">{% trans "Success Rate" %}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ statistics.avg_duration|seconds_to_verbose }}</div>
+                <div class="stat-label">{% trans "Avg Duration" %}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ statistics.max_duration|seconds_to_verbose }}</div>
+                <div class="stat-label">{% trans "Max Duration" %}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ statistics.avg_messages_per_day }}</div>
+                <div class="stat-label">{% trans "Avg Messages / Day" %}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ statistics.avg_messages_per_hour }}</div>
+                <div class="stat-label">{% trans "Avg Messages / Hour" %}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ statistics.avg_messages_per_minute }}</div>
+                <div class="stat-label">{% trans "Avg Messages / Minute" %}</div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-container">
+                <div class="chart-title">{% trans "Tasks per Day" %}</div>
+                <canvas id="messagesPerDayChart" width="400" height="200"></canvas>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">{% trans "Failures per Day" %}</div>
+                <canvas id="failuresPerDayChart" width="400" height="200"></canvas>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">{% trans "Success vs Failure Distribution" %}</div>
+                <canvas id="successFailureChart" width="400" height="200"></canvas>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">{% trans "Top 10 Queues" %}</div>
+                <canvas id="topQueuesChart" width="400" height="200"></canvas>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">{% trans "Worker Distribution" %}</div>
+                <canvas id="workerDistributionChart" width="400" height="200"></canvas>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">{% trans "Periodic Tasks" %}</div>
+                <canvas id="periodicTasksChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+        <div class="chart-container" style="margin-top: 20px;">
+            <div class="chart-title">{% trans "Top 10 Tasks" %}</div>
+            <table class="statistics-table">
+                <thead>
+                <tr>
+                    <th>{% trans "Task Name" %}</th>
+                    <th>{% trans "Executions" %}</th>
+                    <th>{% trans "Success" %}</th>
+                    <th>{% trans "Failures" %}</th>
+                    <th>{% trans "Avg Duration" %}</th>
+                    <th>{% trans "Max Duration" %}</th>
+                    <th>{% trans "Success Rate" %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in top_tasks %}
+                    <tr>
+                        <td style="word-break: break-word;">{{ item.task_name }}</td>
+                        <td style="text-align: center;">{{ item.execution_count }}</td>
+                        <td style="text-align: center; color: #28a745;">{{ item.success_count }}</td>
+                        <td style="text-align: center; color: #dc3545;">{{ item.failure_count }}</td>
+                        <td style="text-align: center;">{{ item.avg_duration|seconds_to_verbose }}</td>
+                        <td style="text-align: center;">{{ item.max_duration|seconds_to_verbose }}</td>
+                        <td style="text-align: center;">{{ item.success_rate|floatformat }}%</td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="7" style="text-align: center; color: #666;">{% trans "No data available for the selected period." %}</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="chart-container" style="margin-top: 20px;">
+            <div class="chart-title">{% trans "Top 10 Slowest Tasks (by Avg Duration)" %}</div>
+            <table class="statistics-table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>{% trans "Task Name" %}</th>
+                    <th>{% trans "Total Executions" %}</th>
+                    <th>{% trans "Avg Duration" %}</th>
+                    <th>{% trans "Max Duration" %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for task in slowest_tasks %}
+                    <tr>
+                        <td style="text-align: center;">{{ forloop.counter }}</td>
+                        <td>{{ task.task_name }}</td>
+                        <td style="text-align: center;">{{ task.message_count }}</td>
+                        <td style="text-align: center;">{{ task.avg_duration|seconds_to_verbose }}</td>
+                        <td style="text-align: center;">{{ task.max_duration|seconds_to_verbose }}</td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="5" style="text-align: center; color: #666;">{% trans "No data available for the selected period." %}</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="chart-container" style="margin-top: 20px;">
+            <div class="chart-title">{% trans "Top 10 Error Messages" %}</div>
+            <div id="errorAnalysisTable"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const chartData = {{ chart_data|safe }};
+            const chartColors = [
+                "rgba(75, 192, 192, 0.8)",
+                "rgba(255, 99, 132, 0.8)",
+                "rgba(54, 162, 235, 0.8)",
+                "rgba(255, 205, 86, 0.8)",
+                "rgba(153, 102, 255, 0.8)",
+                "rgba(255, 159, 64, 0.8)"
+            ];
+
+            function lineChart(id, labels, values, label, color) {
+                new Chart(document.getElementById(id).getContext("2d"), {
+                    type: "line",
+                    data: {
+                        labels: labels,
+                        datasets: [{label: label, data: values, borderColor: color, backgroundColor: color.replace("0.8", "0.2"), tension: 0.1}]
+                    },
+                    options: {responsive: true, scales: {y: {beginAtZero: true}}}
+                });
+            }
+
+            function barChart(id, labels, values, label, color) {
+                new Chart(document.getElementById(id).getContext("2d"), {
+                    type: "bar",
+                    data: {labels: labels, datasets: [{label: label, data: values, backgroundColor: color, borderColor: color, borderWidth: 1}]},
+                    options: {responsive: true, scales: {y: {beginAtZero: true}}}
+                });
+            }
+
+            lineChart(
+                "messagesPerDayChart",
+                chartData.messages_per_day.map(item => item.day),
+                chartData.messages_per_day.map(item => item.total),
+                "{% trans 'Total Tasks' %}",
+                "rgba(75, 192, 192, 0.8)"
+            );
+            lineChart(
+                "failuresPerDayChart",
+                chartData.failures_per_day.map(item => item.day),
+                chartData.failures_per_day.map(item => item.failures),
+                "{% trans 'Failures' %}",
+                "rgba(255, 99, 132, 0.8)"
+            );
+
+            new Chart(document.getElementById("successFailureChart").getContext("2d"), {
+                type: "doughnut",
+                data: {
+                    labels: ["{% trans 'Success' %}", "{% trans 'Failure' %}"],
+                    datasets: [{
+                        data: [chartData.success_failure_stats.total_success, chartData.success_failure_stats.total_failure],
+                        backgroundColor: [chartColors[0], chartColors[1]]
+                    }]
+                },
+                options: {responsive: true, plugins: {legend: {position: "bottom"}}}
+            });
+
+            barChart(
+                "topQueuesChart",
+                chartData.top_queues.map(item => item.queue_name || "N/A"),
+                chartData.top_queues.map(item => item.message_count),
+                "{% trans 'Messages' %}",
+                "rgba(153, 102, 255, 0.8)"
+            );
+
+            new Chart(document.getElementById("workerDistributionChart").getContext("2d"), {
+                type: "doughnut",
+                data: {
+                    labels: chartData.worker_distribution.map(item => item.worker || "N/A"),
+                    datasets: [{data: chartData.worker_distribution.map(item => item.task_count), backgroundColor: chartColors}]
+                },
+                options: {responsive: true, plugins: {legend: {position: "bottom"}}}
+            });
+
+            barChart(
+                "periodicTasksChart",
+                chartData.periodic_task_distribution.map(item => item.periodic_task_name || "N/A"),
+                chartData.periodic_task_distribution.map(item => item.execution_count),
+                "{% trans 'Executions' %}",
+                "rgba(255, 159, 64, 0.8)"
+            );
+
+            const errorAnalysisTable = document.getElementById("errorAnalysisTable");
+            if (chartData.error_analysis.length) {
+                let tableHTML = '<table class="statistics-table"><thead><tr><th>{% trans "Error Message" %}</th><th>{% trans "Count" %}</th></tr></thead><tbody>';
+                chartData.error_analysis.forEach((item) => {
+                    tableHTML += `<tr><td style="word-break: break-word;">${item.error_message}</td><td style="text-align: center; color: #dc3545; font-weight: bold;">${item.error_count}</td></tr>`;
+                });
+                tableHTML += "</tbody></table>";
+                errorAnalysisTable.innerHTML = tableHTML;
+            } else {
+                errorAnalysisTable.innerHTML = '<p style="text-align: center; color: #666;">{% trans "No data available for the selected period." %}</p>';
+            }
+        });
+    </script>
+{% endblock %}
+
+{% block pagination %}{% endblock %}
