@@ -27,7 +27,7 @@ https://rhenter.github.io/django-celery-logs/
 
 As notas de release estao disponiveis no changelog:
 
-`CHANGES.rst <CHANGES.rst>`_.
+`CHANGES <CHANGES.rst>`_.
 
 Requisitos
 ----------
