@@ -641,7 +641,6 @@ wheels = [
 
 [[package]]
 name = "django-celery-logs"
-version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "boltons" },

@@ -1,11 +1,25 @@
 import codecs
 import os
+import re
 from typing import List
 
 from setuptools import Command, find_namespace_packages, setup
 
 here = os.path.abspath(os.path.dirname(__file__))
-version = "0.1.0"
+
+
+def get_version_from_changelog():
+    with codecs.open(os.path.join(here, "CHANGES.rst"), encoding="utf-8") as file_obj:
+        changelog_content = file_obj.read()
+
+    match = re.search(r"^(\d+\.\d+\.\d+)\n-+\n", changelog_content, re.MULTILINE)
+    if not match:
+        raise RuntimeError("Unable to find a release version in CHANGES.rst.")
+
+    return match.group(1)
+
+
+version = get_version_from_changelog()
 
 with codecs.open(os.path.join(here, "README.rst"), encoding="utf-8") as file_obj:
     long_description = file_obj.read()
