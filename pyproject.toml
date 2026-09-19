@@ -26,6 +26,9 @@ dev = [
     "pytest-django",
     "setuptools>=64",
     "sphinx",
+    "sphinx-autobuild",
+    "sphinx-intl",
+    "sphinxjp.themes.basicstrap",
     "twine",
     "wheel",
 ]

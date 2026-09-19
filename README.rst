@@ -83,16 +83,9 @@ task data as JSON:
     CELERY_RESULT_SERIALIZER = "json"
 
 Do not enable other Celery result apps in ``INSTALLED_APPS`` for the same
-purpose. For example, remove ``django_celery_results`` if it is installed:
-
-.. code-block:: python
-
-    INSTALLED_APPS = [
-        ...
-        # "django_celery_results",
-        "django_celery_logs",
-        ...
-    ]
+purpose. For example, remove ``django_celery_results`` if it is installed.
+Only ``django_celery_logs`` should be added, as shown in the Django app section
+below.
 
 If these settings exist, remove them unless another part of your project really
 depends on them:
