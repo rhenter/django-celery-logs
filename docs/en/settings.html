@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Settings &#8212; Django Celery Logs 0.2.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=37f418d5"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Admin" href="admin.html" />
+    <link rel="prev" title="Installation" href="quickstart/installation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="settings">
+<h1>Settings<a class="headerlink" href="#settings" title="Link to this heading">¶</a></h1>
+<section id="celery-result-backend">
+<h2>Celery result backend<a class="headerlink" href="#celery-result-backend" title="Link to this heading">¶</a></h2>
+<p>Django Celery Logs is intended to replace Celery result-backend storage for
+task inspection. Configure Celery to ignore the default result backend and
+serialize task data as JSON:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CELERY_TASK_IGNORE_RESULT</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">CELERY_RESULT_SERIALIZER</span> <span class="o">=</span> <span class="s2">"json"</span>
+</pre></div>
+</div>
+<p>Do not enable other Celery result apps in <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code> for the same
+purpose. For example, remove <code class="docutils literal notranslate"><span class="pre">django_celery_results</span></code> if it is installed.
+Only <code class="docutils literal notranslate"><span class="pre">django_celery_logs</span></code> should be added, as shown in the Django app section
+below.</p>
+<p>If these settings exist, remove them unless another part of your project really
+depends on them:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CELERY_RESULT_BACKEND</span> <span class="o">=</span> <span class="s2">"..."</span>
+<span class="n">CELERY_CACHE_BACKEND</span> <span class="o">=</span> <span class="s2">"..."</span>
+</pre></div>
+</div>
+</section>
+<section id="django-app">
+<h2>Django app<a class="headerlink" href="#django-app" title="Link to this heading">¶</a></h2>
+<p>Add the app to <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s2">"django_celery_logs"</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Django 4.2+ automatically loads <code class="docutils literal notranslate"><span class="pre">django_celery_logs.apps.CeleryLogsConfig</span></code>
+for this app. The app config imports <code class="docutils literal notranslate"><span class="pre">django_celery_logs.signals</span></code> in
+<code class="docutils literal notranslate"><span class="pre">ready()</span></code>, which registers the Celery signal handlers.</p>
+<p>Run migrations:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</pre></div>
+</div>
+</section>
+<section id="log-retention">
+<h2>Log retention<a class="headerlink" href="#log-retention" title="Link to this heading">¶</a></h2>
+<p>Optionally configure how many days logs are retained by the cleanup task:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CELERY_TASK_LOGS_EXPIRES</span> <span class="o">=</span> <span class="mi">7</span>
+</pre></div>
+</div>
+<p>If this setting is not defined, the app uses <code class="docutils literal notranslate"><span class="pre">2</span></code> days by default.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Django Celery Logs</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#celery-result-backend">Celery result backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#django-app">Django app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#log-retention">Log retention</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="admin.html">Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development/installation.html">Development Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/release.html">Release</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id1">Changelog</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="quickstart/installation.html" title="previous chapter">Installation</a></li>
+      <li>Next: <a href="admin.html" title="next chapter">Admin</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Rafael Henter.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/settings.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Django Celery Logs documentation &#8212; Django Celery Logs 0.2.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=37f418d5"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="quickstart/installation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="django-celery-logs-documentation">
+<h1>Django Celery Logs documentation<a class="headerlink" href="#django-celery-logs-documentation" title="Link to this heading">¶</a></h1>
+<p>Django Celery Logs is a reusable Django app for projects that want Celery task
+observability without keeping Celery’s result backend enabled. It records task
+successes and failures through Celery signals, stores structured JSON data, and
+exposes logs, tracebacks, task reruns, and statistics in Django admin.</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Logs successful and failed Celery task executions automatically.</p></li>
+<li><p>Stores task id, task name, periodic task name, queue, worker, args, kwargs,
+JSON result, error message, traceback, timestamp, and duration.</p></li>
+<li><p>Captures structured failure tracebacks with frame-by-frame context and
+sanitized local variables.</p></li>
+<li><p>Adds Django admin pages for log inspection, JSON preview, task rerun, and
+configurable pagination.</p></li>
+<li><p>Adds auto-refresh to the task log list with 5, 10, 30, and 60 second
+intervals.</p></li>
+<li><p>Adds an admin statistics dashboard with totals, success rate, durations,
+throughput, queues, workers, periodic tasks, slow tasks, and common errors.</p></li>
+<li><p>Includes <code class="docutils literal notranslate"><span class="pre">clear_celery_task_logs</span></code> to remove old records.</p></li>
+<li><p>Includes <code class="docutils literal notranslate"><span class="pre">acquire_lock_or_fail</span></code> for cache-backed task de-duplication.</p></li>
+</ul>
+</section>
+<section id="task-list">
+<h2>Task List<a class="headerlink" href="#task-list" title="Link to this heading">¶</a></h2>
+<p>The task log list shows task metadata and a result preview directly in the
+table, so teams can scan recent executions without opening every task detail
+page. It also includes auto-refresh controls and collapsible filters, keeping
+more screen space available for the task list during operational monitoring.</p>
+<img alt="Django Celery Logs task list with result preview" src="_images/task-list-preview.png" />
+</section>
+<section id="interactive-stacktrace">
+<h2>Interactive Stacktrace<a class="headerlink" href="#interactive-stacktrace" title="Link to this heading">¶</a></h2>
+<p>Failed task details include the full stacktrace and the sanitized context
+variables captured at the moment of the error, making production debugging much
+faster.</p>
+<img alt="Django Celery Logs interactive stacktrace with context variables" src="_images/interactive-stacktrace.png" />
+</section>
+<section id="statistics-dashboard">
+<h2>Statistics Dashboard<a class="headerlink" href="#statistics-dashboard" title="Link to this heading">¶</a></h2>
+<p>The statistics admin gives teams a quick operational view of Celery throughput,
+failures, queues, workers, slow tasks, periodic tasks, and common errors.</p>
+<img alt="Django Celery Logs statistics dashboard" src="_images/statistics.png" />
+</section>
+<section id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/installation.html#install-from-pypi">Install from PyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/installation.html#install-from-source">Install from source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#celery-result-backend">Celery result backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#django-app">Django app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#log-retention">Log retention</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="user-guide">
+<h2>User Guide<a class="headerlink" href="#user-guide" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="admin.html">Admin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="admin.html#task-logs">Task logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin.html#task-detail">Task detail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin.html#task-rerun">Task rerun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin.html#statistics">Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#automatic-logging">Automatic logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#cleanup-task">Cleanup task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#task-lock-helper">Task lock helper</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#module-django_celery_logs.models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#module-django_celery_logs.tasks">Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#module-django_celery_logs.utils">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#module-django_celery_logs.widgets">Widgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#module-django_celery_logs.apps">App Config</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="development">
+<h2>Development<a class="headerlink" href="#development" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development/installation.html">Development Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/release.html">Release</a></li>
+</ul>
+</div>
+</section>
+<section id="other">
+<h2>Other<a class="headerlink" href="#other" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id1">Changelog</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Django Celery Logs</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="admin.html">Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development/installation.html">Development Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/release.html">Release</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id1">Changelog</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="quickstart/installation.html" title="next chapter">Installation</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Rafael Henter.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
