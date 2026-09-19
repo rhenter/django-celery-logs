@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
@@ -17,8 +18,14 @@ except Exception:
 project = "Django Celery Logs"
 copyright = "2026, Rafael Henter"
 author = "Rafael Henter"
-version = "0.1.0"
-release = "0.1.0"
+
+with open(os.path.join(PROJECT_ROOT, "CHANGES.rst"), encoding="utf-8") as changelog_file:
+    changelog_content = changelog_file.read()
+
+version_match = re.search(r"^(\d+\.\d+\.\d+)\n-+\n", changelog_content, re.MULTILINE)
+version = version_match.group(1) if version_match else "0.0.0"
+
+release = version
 
 extensions = [
     "sphinx.ext.autodoc",
@@ -33,6 +40,8 @@ exclude_patterns = []
 source_suffix = ".rst"
 master_doc = "index"
 language = "en"
+locale_dirs = ["locale/"]
+gettext_compact = False
 pygments_style = None
 todo_include_todos = True
 

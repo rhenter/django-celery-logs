@@ -5,32 +5,34 @@ Update or add new pages
 -----------------------
 
 Documentation source files live in ``docs_src/source`` and use RST format.
+Translations live in ``docs_src/source/locale/<language>/LC_MESSAGES`` as
+gettext ``.po`` files.
 
 .. note::
 
    If you add a new page, include it in ``docs_src/source/index.rst`` or in a
-   child toctree.
+   child toctree, then run ``make docs`` to update translation catalogs.
 
 Generating the documentation
 ----------------------------
 
-Build the HTML documentation locally:
+Build the bilingual HTML documentation locally:
 
 .. code-block:: bash
 
-   cd docs_src
-   uv run --extra dev sphinx-build -b html source build/html
+   make docs
 
-You can also use the Sphinx Makefile:
+The generated documentation is written to ``docs``:
 
-.. code-block:: bash
-
-   cd docs_src
-   uv run --extra dev make html
+* ``docs/index.html`` is the language selector.
+* ``docs/en/`` contains the English documentation.
+* ``docs/pt-br/`` contains the Portuguese documentation.
+* ``docs/.nojekyll`` and ``docs/.buildinfo`` are created at the root for
+  GitHub Pages.
 
 Cleaning generated documentation
 --------------------------------
 
 .. code-block:: bash
 
-   rm -rf docs_src/build
+   make clean-docs
