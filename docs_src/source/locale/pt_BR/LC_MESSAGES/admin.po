@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Django Celery Logs 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-19 15:39+0000\n"
+"POT-Creation-Date: 2026-09-19 15:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt_BR\n"
@@ -28,12 +28,12 @@ msgstr "Logs de tasks"
 #: ../../source/admin.rst:7
 msgid ""
 "The ``TaskLog`` admin lists task executions with task name, timestamp, "
-"status, and a JSON result preview. Filters include status, timestamp, task "
-"name, and queue."
+"status, and a JSON result preview. Filters include status, timestamp, "
+"task name, and queue."
 msgstr ""
-"O admin de ``TaskLog`` lista execuções de tasks com nome, timestamp, status "
-"e preview do resultado JSON. Os filtros incluem status, timestamp, nome da "
-"task e fila."
+"O admin de ``TaskLog`` lista execuções de tasks com nome, timestamp, "
+"status e preview do resultado JSON. Os filtros incluem status, timestamp,"
+" nome da task e fila."
 
 #: ../../source/admin.rst:11
 msgid "The list page also includes:"
@@ -49,172 +49,182 @@ msgstr "Tamanho de página configurável."
 
 #: ../../source/admin.rst:15
 msgid "Collapsible filters that free more screen space for the task list."
-msgstr "Filtros retráteis que liberam mais espaço de tela para a listagem de tasks."
+msgstr ""
+"Filtros retráteis que liberam mais espaço de tela para a listagem de "
+"tasks."
 
 #: ../../source/admin.rst:16
 msgid "Auto-refresh controls for 5, 10, 30, and 60 second intervals."
 msgstr "Controles de auto-refresh para intervalos de 5, 10, 30 e 60 segundos."
 
-#: ../../source/admin.rst:18
-msgid ""
-"The result preview helps teams scan recent executions directly from the "
-"list, without opening every task detail page."
-msgstr ""
-"O preview do resultado ajuda times a analisar execuções recentes diretamente"
-" pela listagem, sem abrir o detalhe de cada task."
-
-#: ../../source/admin.rst:21
-msgid "Django Celery Logs task list with result preview"
-msgstr "Listagem de tasks do Django Celery Logs com preview do resultado"
-
-#: ../../source/admin.rst:25
-msgid "Task list with result preview, auto-refresh, and collapsible filters."
-msgstr "Listagem de tasks com preview do resultado, auto-refresh e filtros retráteis."
-
-#: ../../source/admin.rst:28
+#: ../../source/admin.rst:19
 msgid "Task detail"
 msgstr "Detalhe da task"
 
-#: ../../source/admin.rst:30
+#: ../../source/admin.rst:21
 msgid "The task detail page is read-only and shows:"
 msgstr "A página de detalhe da task é somente leitura e mostra:"
 
-#: ../../source/admin.rst:32
+#: ../../source/admin.rst:23
 msgid "Task id, task name, periodic task name, queue, worker, and status."
 msgstr "Task id, nome da task, nome da task periódica, fila, worker e status."
 
-#: ../../source/admin.rst:33
+#: ../../source/admin.rst:24
 msgid "Args and kwargs."
 msgstr "Args e kwargs."
 
-#: ../../source/admin.rst:34
+#: ../../source/admin.rst:25
 msgid "Pretty JSON result output."
 msgstr "Resultado JSON formatado."
 
-#: ../../source/admin.rst:35
+#: ../../source/admin.rst:26
 msgid "Exception type and message for failures."
 msgstr "Tipo e mensagem da exceção em caso de falha."
 
-#: ../../source/admin.rst:36
+#: ../../source/admin.rst:27
 msgid "Interactive traceback details."
 msgstr "Detalhes interativos do traceback."
 
-#: ../../source/admin.rst:38
-msgid ""
-"Failed task details include the full stacktrace and sanitized context "
-"variables captured at the moment of the error. This makes debugging "
-"production failures faster because the relevant local state is available "
-"alongside the traceback."
-msgstr ""
-"O detalhe de tasks com falha inclui o stacktrace completo e variáveis de "
-"contexto sanitizadas capturadas no momento do erro. Isso acelera o debug de "
-"falhas em produção porque o estado local relevante fica disponível junto do "
-"traceback."
-
-#: ../../source/admin.rst:42
-msgid "Django Celery Logs interactive stacktrace with context variables"
-msgstr "Stacktrace interativo do Django Celery Logs com variáveis de contexto"
-
-#: ../../source/admin.rst:46
-msgid "Interactive stacktrace with sanitized context variables."
-msgstr "Stacktrace interativo com variáveis de contexto sanitizadas."
-
-#: ../../source/admin.rst:49
+#: ../../source/admin.rst:30
 msgid "Task rerun"
 msgstr "Reexecutar task"
 
-#: ../../source/admin.rst:51
+#: ../../source/admin.rst:32
 msgid ""
 "The detail page includes a \"Re-run Task\" action. It sends the original "
-"task name, args, kwargs, and queue back to Celery using the current Celery "
-"app."
+"task name, args, kwargs, and queue back to Celery using the current "
+"Celery app."
 msgstr ""
-"A página de detalhe inclui a ação \"Re-run Task\". Ela envia o nome original"
-" da task, args, kwargs e fila de volta para o Celery usando a app Celery "
-"atual."
+"A página de detalhe inclui a ação \"Re-run Task\". Ela envia o nome "
+"original da task, args, kwargs e fila de volta para o Celery usando a app"
+" Celery atual."
 
-#: ../../source/admin.rst:55
+#: ../../source/admin.rst:36
 msgid "Statistics"
 msgstr "Estatísticas"
 
-#: ../../source/admin.rst:57
+#: ../../source/admin.rst:38
 msgid ""
-"The ``TaskLogStatistics`` proxy model exposes an admin dashboard with cards,"
-" charts, and tables for operational monitoring:"
+"The ``TaskLogStatistics`` proxy model exposes an admin dashboard with "
+"cards, charts, and tables for operational monitoring:"
 msgstr ""
-"O proxy model ``TaskLogStatistics`` expõe um dashboard administrativo com "
-"cards, gráficos e tabelas para monitoramento operacional:"
+"O proxy model ``TaskLogStatistics`` expõe um dashboard administrativo com"
+" cards, gráficos e tabelas para monitoramento operacional:"
 
-#: ../../source/admin.rst:60
+#: ../../source/admin.rst:41
 msgid "Total tasks."
 msgstr "Total de tasks."
 
-#: ../../source/admin.rst:61
+#: ../../source/admin.rst:42
 msgid "Successful and failed tasks."
 msgstr "Tasks com sucesso e falha."
 
-#: ../../source/admin.rst:62
+#: ../../source/admin.rst:43
 msgid "Success rate."
 msgstr "Taxa de sucesso."
 
-#: ../../source/admin.rst:63
+#: ../../source/admin.rst:44
 msgid "Average and maximum duration."
 msgstr "Duração média e máxima."
 
-#: ../../source/admin.rst:64
+#: ../../source/admin.rst:45
 msgid "Average messages per day, hour, and minute."
 msgstr "Média de mensagens por dia, hora e minuto."
 
-#: ../../source/admin.rst:65
+#: ../../source/admin.rst:46
 msgid "Tasks and failures per day."
 msgstr "Tasks e falhas por dia."
 
-#: ../../source/admin.rst:66
+#: ../../source/admin.rst:47
 msgid "Success vs failure distribution."
 msgstr "Distribuição de sucesso vs falha."
 
-#: ../../source/admin.rst:67
+#: ../../source/admin.rst:48
 msgid "Top queues."
 msgstr "Principais filas."
 
-#: ../../source/admin.rst:68
+#: ../../source/admin.rst:49
 msgid "Worker distribution."
 msgstr "Distribuição por worker."
 
-#: ../../source/admin.rst:69
+#: ../../source/admin.rst:50
 msgid "Periodic task distribution."
 msgstr "Distribuição de tasks periódicas."
 
-#: ../../source/admin.rst:70
+#: ../../source/admin.rst:51
 msgid "Top tasks."
 msgstr "Principais tasks."
 
-#: ../../source/admin.rst:71
+#: ../../source/admin.rst:52
 msgid "Slowest tasks."
 msgstr "Tasks mais lentas."
 
-#: ../../source/admin.rst:72
+#: ../../source/admin.rst:53
 msgid "Top error messages."
 msgstr "Principais mensagens de erro."
 
-#: ../../source/admin.rst:74
-msgid ""
-"The dashboard gives teams a quick operational view of Celery throughput, "
-"failures, queue distribution, workers, periodic tasks, slow tasks, and "
-"common errors."
-msgstr ""
-"O dashboard oferece aos times uma visão operacional rápida do throughput do "
-"Celery, falhas, distribuição por fila, workers, tasks periódicas, tasks "
-"lentas e erros comuns."
-
-#: ../../source/admin.rst:78
-msgid "Django Celery Logs statistics dashboard"
-msgstr "Dashboard de estatísticas do Django Celery Logs"
-
-#: ../../source/admin.rst:82
-msgid "Statistics dashboard for Celery task monitoring."
-msgstr "Dashboard de estatísticas para monitoramento de tasks Celery."
-
 #~ msgid "Collapsible filters."
 #~ msgstr "Filtros colapsáveis."
+
+#~ msgid ""
+#~ "The result preview helps teams scan "
+#~ "recent executions directly from the "
+#~ "list, without opening every task detail"
+#~ " page."
+#~ msgstr ""
+#~ "O preview do resultado ajuda times "
+#~ "a analisar execuções recentes diretamente "
+#~ "pela listagem, sem abrir o detalhe "
+#~ "de cada task."
+
+#~ msgid "Django Celery Logs task list with result preview"
+#~ msgstr "Listagem de tasks do Django Celery Logs com preview do resultado"
+
+#~ msgid "Task list with result preview, auto-refresh, and collapsible filters."
+#~ msgstr ""
+#~ "Listagem de tasks com preview do "
+#~ "resultado, auto-refresh e filtros "
+#~ "retráteis."
+
+#~ msgid ""
+#~ "Failed task details include the full "
+#~ "stacktrace and sanitized context variables "
+#~ "captured at the moment of the "
+#~ "error. This makes debugging production "
+#~ "failures faster because the relevant "
+#~ "local state is available alongside the"
+#~ " traceback."
+#~ msgstr ""
+#~ "O detalhe de tasks com falha "
+#~ "inclui o stacktrace completo e variáveis"
+#~ " de contexto sanitizadas capturadas no "
+#~ "momento do erro. Isso acelera o "
+#~ "debug de falhas em produção porque "
+#~ "o estado local relevante fica disponível"
+#~ " junto do traceback."
+
+#~ msgid "Django Celery Logs interactive stacktrace with context variables"
+#~ msgstr "Stacktrace interativo do Django Celery Logs com variáveis de contexto"
+
+#~ msgid "Interactive stacktrace with sanitized context variables."
+#~ msgstr "Stacktrace interativo com variáveis de contexto sanitizadas."
+
+#~ msgid ""
+#~ "The dashboard gives teams a quick "
+#~ "operational view of Celery throughput, "
+#~ "failures, queue distribution, workers, "
+#~ "periodic tasks, slow tasks, and common"
+#~ " errors."
+#~ msgstr ""
+#~ "O dashboard oferece aos times uma "
+#~ "visão operacional rápida do throughput "
+#~ "do Celery, falhas, distribuição por "
+#~ "fila, workers, tasks periódicas, tasks "
+#~ "lentas e erros comuns."
+
+#~ msgid "Django Celery Logs statistics dashboard"
+#~ msgstr "Dashboard de estatísticas do Django Celery Logs"
+
+#~ msgid "Statistics dashboard for Celery task monitoring."
+#~ msgstr "Dashboard de estatísticas para monitoramento de tasks Celery."
 

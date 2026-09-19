@@ -38,6 +38,13 @@ jobs:
       - name: Run tests
         run: make test
 
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.xml
+          slug: rhenter/django-celery-logs
+
       - name: Run Django checks
         run: make check
 
