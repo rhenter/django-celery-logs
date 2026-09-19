@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 
 The project follows semantic versioning while the public API stabilizes.
 
+0.2.1
+-----
+
+Released on 2026-09-19.
+
+Changed
+~~~~~~~
+
+* Updated the PyPI long description with the latest README content,
+  including GitHub Pages documentation links and Portuguese README guidance.
+* Improved README and documentation previews with Task List, Interactive
+  Stacktrace, and Statistics Dashboard screenshots.
+* Updated bilingual documentation output and GitHub Pages publishing assets.
+
+Testing
+~~~~~~~
+
+* Added broader test coverage for admin helpers, Celery log cleanup, widgets,
+  template filters, cache lock handling, and task log creation.
+* Added Codecov upload support to the GitHub Actions workflow.
+
 0.2.0
 -----
 
