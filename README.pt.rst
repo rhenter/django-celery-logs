@@ -1,7 +1,7 @@
 Django Celery Logs
 ==================
 
-|PyPI latest| |PyPI Version| |PyPI License| |GitHub Actions Status| |Coverage| |Docs| |Open Source? Yes!|
+|PyPI latest| |PyPI Version| |PyPI License| |Django Packages| |GitHub Actions Status| |Coverage| |Docs| |Open Source? Yes!|
 
 README em ingles: `README.rst <README.rst>`_.
 
@@ -272,6 +272,10 @@ MIT
 .. |PyPI License| image:: https://img.shields.io/pypi/l/django_celery_logs.svg
    :target: https://pypi.org/project/django-celery-logs/
    :alt: Licenca
+
+.. |Django Packages| image:: https://img.shields.io/badge/PyPI-django--celery--logs--tags-8c3c26.svg
+   :target: https://djangopackages.org/packages/p/django-celery-logs/
+   :alt: Latest on Django Packages
 
 .. |GitHub Actions Status| image:: https://github.com/rhenter/django-celery-logs/actions/workflows/ci.yml/badge.svg
    :target: https://github.com/rhenter/django-celery-logs/actions/workflows/ci.yml
