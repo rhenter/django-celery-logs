@@ -3,4 +3,4 @@ include README.rst
 include README.pt.rst
 include CHANGES.rst
 recursive-include django_celery_logs *.py *.html *.css *.js
-recursive-include docs_src *.rst *.py *.po *.html *.bat Makefile
+recursive-include docs_src *.rst *.py *.po *.html *.png *.bat Makefile

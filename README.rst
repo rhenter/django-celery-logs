@@ -47,6 +47,36 @@ Features
 * Includes a cleanup task named ``clear_celery_task_logs``.
 * Includes ``acquire_lock_or_fail`` for cache-backed task de-duplication.
 
+Task List
+---------
+
+The task log list shows task metadata and a result preview directly in the
+table, so teams can scan recent executions without opening every task detail
+page. It also includes auto-refresh controls and collapsible filters, keeping
+more screen space available for the task list during operational monitoring.
+
+.. image:: https://raw.githubusercontent.com/rhenter/django-celery-logs/main/docs_src/source/_static/images/task-list-preview.png
+   :alt: Django Celery Logs task list
+
+Interactive Stacktrace
+----------------------
+
+Failed task details include the full stacktrace and the sanitized context
+variables captured at the moment of the error, making production debugging much
+faster.
+
+.. image:: https://raw.githubusercontent.com/rhenter/django-celery-logs/main/docs_src/source/_static/images/interactive-stacktrace.png
+   :alt: Django Celery Logs interactive stacktrace with context variables
+
+Statistics Dashboard
+--------------------
+
+The statistics admin gives teams a quick operational view of Celery throughput,
+failures, queues, workers, slow tasks, periodic tasks, and common errors.
+
+.. image:: https://raw.githubusercontent.com/rhenter/django-celery-logs/main/docs_src/source/_static/images/statistics.png
+   :alt: Django Celery Logs statistics dashboard
+
 Installation
 ------------
 

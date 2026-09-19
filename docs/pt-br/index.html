@@ -49,6 +49,21 @@
 <li><p>Inclui <code class="docutils literal notranslate"><span class="pre">acquire_lock_or_fail</span></code> para evitar execução duplicada usando lock em cache.</p></li>
 </ul>
 </section>
+<section id="task-list">
+<h2>Listagem de tasks<a class="headerlink" href="#task-list" title="Link para este cabeçalho">¶</a></h2>
+<p>A listagem de logs mostra metadados da task e um preview do resultado diretamente na tabela, permitindo analisar execuções recentes sem abrir o detalhe de cada task. Ela também inclui controles de auto-refresh e filtros retráteis, mantendo mais espaço de tela disponível para a lista durante o monitoramento operacional.</p>
+<img alt="Listagem de tasks do Django Celery Logs com preview do resultado" src="_images/task-list-preview.png" />
+</section>
+<section id="interactive-stacktrace">
+<h2>Stacktrace interativo<a class="headerlink" href="#interactive-stacktrace" title="Link para este cabeçalho">¶</a></h2>
+<p>O detalhe de uma task com falha inclui o stacktrace completo e as variáveis de contexto sanitizadas capturadas no momento do erro, acelerando o debug em produção.</p>
+<img alt="Stacktrace interativo do Django Celery Logs com variáveis de contexto" src="_images/interactive-stacktrace.png" />
+</section>
+<section id="statistics-dashboard">
+<h2>Dashboard de estatísticas<a class="headerlink" href="#statistics-dashboard" title="Link para este cabeçalho">¶</a></h2>
+<p>O admin de estatísticas oferece uma visão operacional rápida do throughput do Celery, falhas, filas, workers, tasks lentas, tasks periódicas e erros comuns.</p>
+<img alt="Dashboard de estatísticas do Django Celery Logs" src="_images/statistics.png" />
+</section>
 <section id="quickstart">
 <h2>Início rápido<a class="headerlink" href="#quickstart" title="Link para este cabeçalho">¶</a></h2>
 <div class="toctree-wrapper compound">
