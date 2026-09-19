@@ -24,6 +24,10 @@ The documentation is available on GitHub Pages:
 
 https://rhenter.github.io/django-celery-logs/
 
+Release notes are available in the changelog:
+
+`CHANGES.rst <CHANGES.rst>`_.
+
 Requirements
 ------------
 
