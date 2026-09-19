@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Documentação do Django Celery Logs &#8212; Documentação Django Celery Logs 0.2.0</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=59f06600"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/translations.js?v=71a39b36"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Buscar" href="search.html" />
+    <link rel="next" title="Instalação" href="quickstart/installation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="django-celery-logs-documentation">
+<h1>Documentação do Django Celery Logs<a class="headerlink" href="#django-celery-logs-documentation" title="Link para este cabeçalho">¶</a></h1>
+<p>Django Celery Logs é um app Django reutilizável para projetos que querem observabilidade de tasks Celery sem manter o result backend do Celery ativado. Ele registra sucessos e falhas por meio de signals do Celery, armazena dados JSON estruturados e expõe logs, tracebacks, reexecução de tasks e estatísticas no Django admin.</p>
+<section id="features">
+<h2>Funcionalidades<a class="headerlink" href="#features" title="Link para este cabeçalho">¶</a></h2>
+<ul class="simple">
+<li><p>Registra automaticamente execuções Celery com sucesso e falha.</p></li>
+<li><p>Armazena task id, nome da task, nome da task periódica, fila, worker, args, kwargs, resultado JSON, mensagem de erro, traceback, timestamp e duração.</p></li>
+<li><p>Captura tracebacks estruturados de falha com contexto por frame e variáveis locais sanitizadas.</p></li>
+<li><p>Adiciona páginas no Django admin para inspeção de logs, preview de JSON, reexecução de task e paginação configurável.</p></li>
+<li><p>Adiciona auto-refresh na listagem de logs de tasks com intervalos de 5, 10, 30 e 60 segundos.</p></li>
+<li><p>Adiciona um dashboard administrativo de estatísticas com totais, taxa de sucesso, durações, throughput, filas, workers, tasks periódicas, tasks lentas e erros comuns.</p></li>
+<li><p>Inclui <code class="docutils literal notranslate"><span class="pre">clear_celery_task_logs</span></code> para remover registros antigos.</p></li>
+<li><p>Inclui <code class="docutils literal notranslate"><span class="pre">acquire_lock_or_fail</span></code> para evitar execução duplicada usando lock em cache.</p></li>
+</ul>
+</section>
+<section id="quickstart">
+<h2>Início rápido<a class="headerlink" href="#quickstart" title="Link para este cabeçalho">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/installation.html">Instalação</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/installation.html#requirements">Requisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/installation.html#install-from-pypi">Instalar pelo PyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/installation.html#install-from-source">Instalar pelo código-fonte</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Configurações</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#celery-result-backend">Result backend do Celery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#django-app">App Django</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#log-retention">Retenção dos logs</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="user-guide">
+<h2>Guia de uso<a class="headerlink" href="#user-guide" title="Link para este cabeçalho">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="admin.html">Admin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="admin.html#task-logs">Logs de tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin.html#task-detail">Detalhe da task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin.html#task-rerun">Reexecutar task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin.html#statistics">Estatísticas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Uso</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#automatic-logging">Registro automático</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#cleanup-task">Task de limpeza</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#task-lock-helper">Helper de lock</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Referência da API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#module-django_celery_logs.models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#module-django_celery_logs.tasks">Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#module-django_celery_logs.utils">Utilitários</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#module-django_celery_logs.widgets">Widgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#module-django_celery_logs.apps">App Config</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="development">
+<h2>Desenvolvimento<a class="headerlink" href="#development" title="Link para este cabeçalho">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development/installation.html">Instalação de desenvolvimento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/documentation.html">Documentação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/release.html">Release</a></li>
+</ul>
+</div>
+</section>
+<section id="other">
+<h2>Outros<a class="headerlink" href="#other" title="Link para este cabeçalho">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id1">Changelog</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Django Celery Logs</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Ir" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navegação</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/installation.html">Instalação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Configurações</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="admin.html">Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Uso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Referência da API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development/installation.html">Instalação de desenvolvimento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/documentation.html">Documentação</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/release.html">Release</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html#id1">Changelog</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="quickstart/installation.html" title="próximo capítulo">Instalação</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Rafael Henter.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

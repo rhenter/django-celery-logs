@@ -1,0 +1,66 @@
+# Portuguese translations for Django Celery Logs.
+# Copyright (C) 2026, Rafael Henter
+# This file is distributed under the same license as the Django Celery Logs package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Django Celery Logs 0.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-19 14:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt_BR\n"
+"Language-Team: pt_BR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/development/installation.rst:2
+msgid "Development Installation"
+msgstr "Instalação de desenvolvimento"
+
+#: ../../source/development/installation.rst:5
+msgid "Requirements"
+msgstr "Requisitos"
+
+#: ../../source/development/installation.rst:7
+msgid "Python 3.10 or later"
+msgstr "Python 3.10 ou superior"
+
+#: ../../source/development/installation.rst:8
+msgid "uv"
+msgstr "uv"
+
+#: ../../source/development/installation.rst:11
+msgid "Development install"
+msgstr "Instalação de desenvolvimento"
+
+#: ../../source/development/installation.rst:13
+msgid "After forking or checking out:"
+msgstr "Depois de fazer fork ou checkout:"
+
+#: ../../source/development/installation.rst:21
+msgid ""
+"The project stores runtime metadata in ``setup.py`` for PyPI and uses "
+"``pyproject.toml`` for the build backend and development extras."
+msgstr ""
+"O projeto mantém metadados de runtime em ``setup.py`` para o PyPI e usa "
+"``pyproject.toml`` para o build backend e extras de desenvolvimento."
+
+#: ../../source/development/installation.rst:25
+msgid "Running tests"
+msgstr "Executando testes"
+
+#: ../../source/development/installation.rst:31
+msgid "Run Django's system checks against the bundled test project:"
+msgstr "Execute os system checks do Django contra o projeto de teste incluído:"
+
+#: ../../source/development/installation.rst:38
+msgid "Building the package"
+msgstr "Gerando o pacote"
+
+#: ../../source/development/installation.rst:45
+msgid "Checking package metadata"
+msgstr "Verificando metadados do pacote"
+

@@ -1,0 +1,97 @@
+# Portuguese translations for Django Celery Logs.
+# Copyright (C) 2026, Rafael Henter
+# This file is distributed under the same license as the Django Celery Logs package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Django Celery Logs 0.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-19 14:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt_BR\n"
+"Language-Team: pt_BR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/development/documentation.rst:2
+msgid "Documentation"
+msgstr "Documentação"
+
+#: ../../source/development/documentation.rst:5
+msgid "Update or add new pages"
+msgstr "Atualizar ou adicionar novas páginas"
+
+#: ../../source/development/documentation.rst:7
+msgid ""
+"Documentation source files live in ``docs_src/source`` and use RST format. "
+"Translations live in ``docs_src/source/locale/<language>/LC_MESSAGES`` as "
+"gettext ``.po`` files."
+msgstr ""
+"Os arquivos-fonte da documentação ficam em ``docs_src/source`` e usam o "
+"formato RST. As traduções ficam em "
+"``docs_src/source/locale/<language>/LC_MESSAGES`` como arquivos gettext "
+"``.po``."
+
+#: ../../source/development/documentation.rst:13
+msgid ""
+"If you add a new page, include it in ``docs_src/source/index.rst`` or in a "
+"child toctree, then run ``make docs`` to update translation catalogs."
+msgstr ""
+"Se você adicionar uma nova página, inclua-a em ``docs_src/source/index.rst``"
+" ou em um toctree filho, depois execute ``make docs`` para atualizar os "
+"catálogos de tradução."
+
+#: ../../source/development/documentation.rst:17
+msgid "Generating the documentation"
+msgstr "Gerando a documentação"
+
+#: ../../source/development/documentation.rst:19
+msgid "Build the bilingual HTML documentation locally:"
+msgstr "Gere a documentação HTML bilíngue localmente:"
+
+#: ../../source/development/documentation.rst:25
+msgid "The generated documentation is written to ``docs``:"
+msgstr "A documentação gerada é escrita em ``docs``:"
+
+#: ../../source/development/documentation.rst:27
+msgid "``docs/index.html`` is the language selector."
+msgstr "``docs/index.html`` é o seletor de idioma."
+
+#: ../../source/development/documentation.rst:28
+msgid "``docs/en/`` contains the English documentation."
+msgstr "``docs/en/`` contém a documentação em inglês."
+
+#: ../../source/development/documentation.rst:29
+msgid "``docs/pt-br/`` contains the Portuguese documentation."
+msgstr "``docs/pt-br/`` contém a documentação em português."
+
+#: ../../source/development/documentation.rst:30
+msgid ""
+"``docs/.nojekyll`` and ``docs/.buildinfo`` are created at the root for "
+"GitHub Pages."
+msgstr ""
+"``docs/.nojekyll`` e ``docs/.buildinfo`` são criados na raiz para o GitHub "
+"Pages."
+
+#: ../../source/development/documentation.rst:34
+msgid "Cleaning generated documentation"
+msgstr "Limpando a documentação gerada"
+
+#~ msgid ""
+#~ "English documentation source files live in"
+#~ " ``docs_src/source`` and Portuguese documentation"
+#~ " source files live in "
+#~ "``docs_src/source_pt_br``. Both trees use RST "
+#~ "format."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you add a new page, include "
+#~ "it in the matching ``index.rst`` file "
+#~ "or in a child toctree for each "
+#~ "supported language."
+#~ msgstr ""
+

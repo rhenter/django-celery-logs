@@ -1,0 +1,93 @@
+# Portuguese translations for Django Celery Logs.
+# Copyright (C) 2026, Rafael Henter
+# This file is distributed under the same license as the Django Celery Logs package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Django Celery Logs 0.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-19 14:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt_BR\n"
+"Language-Team: pt_BR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/settings.rst:2
+msgid "Settings"
+msgstr "Configurações"
+
+#: ../../source/settings.rst:5
+msgid "Celery result backend"
+msgstr "Result backend do Celery"
+
+#: ../../source/settings.rst:7
+msgid ""
+"Django Celery Logs is intended to replace Celery result-backend storage for "
+"task inspection. Configure Celery to ignore the default result backend and "
+"serialize task data as JSON:"
+msgstr ""
+"Django Celery Logs foi pensado para substituir o armazenamento do result "
+"backend do Celery para inspeção de tasks. Configure o Celery para ignorar o "
+"backend de resultado padrão e serializar os dados da task como JSON:"
+
+#: ../../source/settings.rst:16
+msgid ""
+"Do not enable other Celery result apps in ``INSTALLED_APPS`` for the same "
+"purpose. For example, remove ``django_celery_results`` if it is installed. "
+"Only ``django_celery_logs`` should be added, as shown in the Django app "
+"section below."
+msgstr ""
+"Não habilite outros apps de resultado do Celery em ``INSTALLED_APPS`` para o"
+" mesmo objetivo. Por exemplo, remova ``django_celery_results`` se ele "
+"estiver instalado. Somente ``django_celery_logs`` deve ser adicionado, como "
+"mostrado na seção do app Django abaixo."
+
+#: ../../source/settings.rst:21
+msgid ""
+"If these settings exist, remove them unless another part of your project "
+"really depends on them:"
+msgstr ""
+"Se estas configurações existirem, remova-as, a menos que outra parte do "
+"projeto realmente dependa delas:"
+
+#: ../../source/settings.rst:30
+msgid "Django app"
+msgstr "App Django"
+
+#: ../../source/settings.rst:32
+msgid "Add the app to ``INSTALLED_APPS``:"
+msgstr "Adicione o app ao ``INSTALLED_APPS``:"
+
+#: ../../source/settings.rst:42
+msgid ""
+"Django 4.2+ automatically loads ``django_celery_logs.apps.CeleryLogsConfig``"
+" for this app. The app config imports ``django_celery_logs.signals`` in "
+"``ready()``, which registers the Celery signal handlers."
+msgstr ""
+"Django 4.2+ carrega automaticamente "
+"``django_celery_logs.apps.CeleryLogsConfig`` para este app. O app config "
+"importa ``django_celery_logs.signals`` em ``ready()``, registrando os signal"
+" handlers do Celery."
+
+#: ../../source/settings.rst:46
+msgid "Run migrations:"
+msgstr "Execute as migrations:"
+
+#: ../../source/settings.rst:53
+msgid "Log retention"
+msgstr "Retenção dos logs"
+
+#: ../../source/settings.rst:55
+msgid "Optionally configure how many days logs are retained by the cleanup task:"
+msgstr ""
+"Opcionalmente, configure por quantos dias os logs serão mantidos pela task "
+"de limpeza:"
+
+#: ../../source/settings.rst:61
+msgid "If this setting is not defined, the app uses ``2`` days by default."
+msgstr "Se esta configuração não for definida, o app usa ``2`` dias por padrão."
+

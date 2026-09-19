@@ -1,0 +1,108 @@
+# Portuguese translations for Django Celery Logs.
+# Copyright (C) 2026, Rafael Henter
+# This file is distributed under the same license as the Django Celery Logs package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Django Celery Logs 0.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-19 14:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt_BR\n"
+"Language-Team: pt_BR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/usage.rst:2
+msgid "Usage"
+msgstr "Uso"
+
+#: ../../source/usage.rst:5
+msgid "Automatic logging"
+msgstr "Registro automático"
+
+#: ../../source/usage.rst:7
+msgid ""
+"Once Django loads the app, Celery's ``task_success`` and ``task_failure`` "
+"signals create ``TaskLog`` records automatically."
+msgstr ""
+"Quando o Django carrega o app, os signals ``task_success`` e "
+"``task_failure`` do Celery criam registros em ``TaskLog`` automaticamente."
+
+#: ../../source/usage.rst:11
+msgid "Successful tasks"
+msgstr "Tasks com sucesso"
+
+#: ../../source/usage.rst:13
+msgid ""
+"Successful tasks store the serialized result when possible. If the result "
+"contains ``duration_s``, ``duration_secs``, or a parseable ``duration`` "
+"value, the app stores ``duration_secs`` for statistics."
+msgstr ""
+"Tasks com sucesso armazenam o resultado serializado quando possível. Se o "
+"resultado contiver ``duration_s``, ``duration_secs`` ou um valor "
+"``duration`` parseável, o app armazena ``duration_secs`` para estatísticas."
+
+#: ../../source/usage.rst:18
+msgid "Skip logging intentionally"
+msgstr "Ignorar log intencionalmente"
+
+#: ../../source/usage.rst:20
+msgid ""
+"To avoid logging an intentionally skipped successful task, return a "
+"dictionary with ``ignore_task_log``:"
+msgstr ""
+"Para evitar o log de uma task com sucesso que foi intencionalmente ignorada,"
+" retorne um dicionário com ``ignore_task_log``:"
+
+#: ../../source/usage.rst:28
+msgid "Failure tracebacks"
+msgstr "Tracebacks de falha"
+
+#: ../../source/usage.rst:30
+msgid "Failed tasks store:"
+msgstr "Tasks com falha armazenam:"
+
+#: ../../source/usage.rst:32
+msgid "Exception type."
+msgstr "Tipo da exceção."
+
+#: ../../source/usage.rst:33
+msgid "Exception message."
+msgstr "Mensagem da exceção."
+
+#: ../../source/usage.rst:34
+msgid "Stack frames."
+msgstr "Frames da stack."
+
+#: ../../source/usage.rst:35
+msgid "Sanitized local variables in frame context."
+msgstr "Variáveis locais sanitizadas no contexto do frame."
+
+#: ../../source/usage.rst:38
+msgid "Cleanup task"
+msgstr "Task de limpeza"
+
+#: ../../source/usage.rst:40
+msgid ""
+"To remove old logs, schedule the bundled task in Celery beat or call it "
+"directly:"
+msgstr ""
+"Para remover logs antigos, agende a task incluída no Celery beat ou chame-a "
+"diretamente:"
+
+#: ../../source/usage.rst:50
+msgid "Task lock helper"
+msgstr "Helper de lock"
+
+#: ../../source/usage.rst:52
+msgid ""
+"Use ``acquire_lock_or_fail`` to skip work when another task already owns a "
+"cache-backed lock:"
+msgstr ""
+"Use ``acquire_lock_or_fail`` para ignorar trabalho quando outra task já "
+"possui um lock baseado em cache:"
+

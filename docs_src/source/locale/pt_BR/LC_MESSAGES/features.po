@@ -1,0 +1,73 @@
+# Portuguese translations for Django Celery Logs.
+# Copyright (C) 2026, Rafael Henter
+# This file is distributed under the same license as the Django Celery Logs package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Django Celery Logs 0.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-19 14:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt_BR\n"
+"Language-Team: pt_BR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/features.rst:1
+msgid "Logs successful and failed Celery task executions automatically."
+msgstr "Registra automaticamente execuções Celery com sucesso e falha."
+
+#: ../../source/features.rst:2
+msgid ""
+"Stores task id, task name, periodic task name, queue, worker, args, kwargs, "
+"JSON result, error message, traceback, timestamp, and duration."
+msgstr ""
+"Armazena task id, nome da task, nome da task periódica, fila, worker, args, "
+"kwargs, resultado JSON, mensagem de erro, traceback, timestamp e duração."
+
+#: ../../source/features.rst:4
+msgid ""
+"Captures structured failure tracebacks with frame-by-frame context and "
+"sanitized local variables."
+msgstr ""
+"Captura tracebacks estruturados de falha com contexto por frame e variáveis "
+"locais sanitizadas."
+
+#: ../../source/features.rst:6
+msgid ""
+"Adds Django admin pages for log inspection, JSON preview, task rerun, and "
+"configurable pagination."
+msgstr ""
+"Adiciona páginas no Django admin para inspeção de logs, preview de JSON, "
+"reexecução de task e paginação configurável."
+
+#: ../../source/features.rst:8
+msgid ""
+"Adds auto-refresh to the task log list with 5, 10, 30, and 60 second "
+"intervals."
+msgstr ""
+"Adiciona auto-refresh na listagem de logs de tasks com intervalos de 5, 10, "
+"30 e 60 segundos."
+
+#: ../../source/features.rst:10
+msgid ""
+"Adds an admin statistics dashboard with totals, success rate, durations, "
+"throughput, queues, workers, periodic tasks, slow tasks, and common errors."
+msgstr ""
+"Adiciona um dashboard administrativo de estatísticas com totais, taxa de "
+"sucesso, durações, throughput, filas, workers, tasks periódicas, tasks "
+"lentas e erros comuns."
+
+#: ../../source/features.rst:12
+msgid "Includes ``clear_celery_task_logs`` to remove old records."
+msgstr "Inclui ``clear_celery_task_logs`` para remover registros antigos."
+
+#: ../../source/features.rst:13
+msgid "Includes ``acquire_lock_or_fail`` for cache-backed task de-duplication."
+msgstr ""
+"Inclui ``acquire_lock_or_fail`` para evitar execução duplicada usando lock "
+"em cache."
+

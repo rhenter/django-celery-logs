@@ -1,0 +1,162 @@
+# Portuguese translations for Django Celery Logs.
+# Copyright (C) 2026, Rafael Henter
+# This file is distributed under the same license as the Django Celery Logs package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Django Celery Logs 0.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-19 14:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt_BR\n"
+"Language-Team: pt_BR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/admin.rst:2
+msgid "Admin"
+msgstr "Admin"
+
+#: ../../source/admin.rst:5
+msgid "Task logs"
+msgstr "Logs de tasks"
+
+#: ../../source/admin.rst:7
+msgid ""
+"The ``TaskLog`` admin lists task executions with task name, timestamp, "
+"status, and a JSON result preview. Filters include status, timestamp, task "
+"name, and queue."
+msgstr ""
+"O admin de ``TaskLog`` lista execuções de tasks com nome, timestamp, status "
+"e preview do resultado JSON. Os filtros incluem status, timestamp, nome da "
+"task e fila."
+
+#: ../../source/admin.rst:11
+msgid "The list page also includes:"
+msgstr "A listagem também inclui:"
+
+#: ../../source/admin.rst:13
+msgid "A shortcut to the statistics dashboard."
+msgstr "Atalho para o dashboard de estatísticas."
+
+#: ../../source/admin.rst:14
+msgid "Configurable page size."
+msgstr "Tamanho de página configurável."
+
+#: ../../source/admin.rst:15
+msgid "Collapsible filters."
+msgstr "Filtros colapsáveis."
+
+#: ../../source/admin.rst:16
+msgid "Auto-refresh controls for 5, 10, 30, and 60 second intervals."
+msgstr "Controles de auto-refresh para intervalos de 5, 10, 30 e 60 segundos."
+
+#: ../../source/admin.rst:19
+msgid "Task detail"
+msgstr "Detalhe da task"
+
+#: ../../source/admin.rst:21
+msgid "The task detail page is read-only and shows:"
+msgstr "A página de detalhe da task é somente leitura e mostra:"
+
+#: ../../source/admin.rst:23
+msgid "Task id, task name, periodic task name, queue, worker, and status."
+msgstr "Task id, nome da task, nome da task periódica, fila, worker e status."
+
+#: ../../source/admin.rst:24
+msgid "Args and kwargs."
+msgstr "Args e kwargs."
+
+#: ../../source/admin.rst:25
+msgid "Pretty JSON result output."
+msgstr "Resultado JSON formatado."
+
+#: ../../source/admin.rst:26
+msgid "Exception type and message for failures."
+msgstr "Tipo e mensagem da exceção em caso de falha."
+
+#: ../../source/admin.rst:27
+msgid "Interactive traceback details."
+msgstr "Detalhes interativos do traceback."
+
+#: ../../source/admin.rst:30
+msgid "Task rerun"
+msgstr "Reexecutar task"
+
+#: ../../source/admin.rst:32
+msgid ""
+"The detail page includes a \"Re-run Task\" action. It sends the original "
+"task name, args, kwargs, and queue back to Celery using the current Celery "
+"app."
+msgstr ""
+"A página de detalhe inclui a ação \"Re-run Task\". Ela envia o nome original"
+" da task, args, kwargs e fila de volta para o Celery usando a app Celery "
+"atual."
+
+#: ../../source/admin.rst:36
+msgid "Statistics"
+msgstr "Estatísticas"
+
+#: ../../source/admin.rst:38
+msgid ""
+"The ``TaskLogStatistics`` proxy model exposes an admin dashboard with cards,"
+" charts, and tables for operational monitoring:"
+msgstr ""
+"O proxy model ``TaskLogStatistics`` expõe um dashboard administrativo com "
+"cards, gráficos e tabelas para monitoramento operacional:"
+
+#: ../../source/admin.rst:41
+msgid "Total tasks."
+msgstr "Total de tasks."
+
+#: ../../source/admin.rst:42
+msgid "Successful and failed tasks."
+msgstr "Tasks com sucesso e falha."
+
+#: ../../source/admin.rst:43
+msgid "Success rate."
+msgstr "Taxa de sucesso."
+
+#: ../../source/admin.rst:44
+msgid "Average and maximum duration."
+msgstr "Duração média e máxima."
+
+#: ../../source/admin.rst:45
+msgid "Average messages per day, hour, and minute."
+msgstr "Média de mensagens por dia, hora e minuto."
+
+#: ../../source/admin.rst:46
+msgid "Tasks and failures per day."
+msgstr "Tasks e falhas por dia."
+
+#: ../../source/admin.rst:47
+msgid "Success vs failure distribution."
+msgstr "Distribuição de sucesso vs falha."
+
+#: ../../source/admin.rst:48
+msgid "Top queues."
+msgstr "Principais filas."
+
+#: ../../source/admin.rst:49
+msgid "Worker distribution."
+msgstr "Distribuição por worker."
+
+#: ../../source/admin.rst:50
+msgid "Periodic task distribution."
+msgstr "Distribuição de tasks periódicas."
+
+#: ../../source/admin.rst:51
+msgid "Top tasks."
+msgstr "Principais tasks."
+
+#: ../../source/admin.rst:52
+msgid "Slowest tasks."
+msgstr "Tasks mais lentas."
+
+#: ../../source/admin.rst:53
+msgid "Top error messages."
+msgstr "Principais mensagens de erro."
+

@@ -1,0 +1,55 @@
+# Portuguese translations for Django Celery Logs.
+# Copyright (C) 2026, Rafael Henter
+# This file is distributed under the same license as the Django Celery Logs package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Django Celery Logs 0.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-19 14:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt_BR\n"
+"Language-Team: pt_BR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/quickstart/installation.rst:2
+msgid "Installation"
+msgstr "Instalação"
+
+#: ../../source/quickstart/installation.rst:5
+msgid "Requirements"
+msgstr "Requisitos"
+
+#: ../../source/quickstart/installation.rst:7
+msgid "Python 3.10 or later"
+msgstr "Python 3.10 ou superior"
+
+#: ../../source/quickstart/installation.rst:8
+msgid "Django 4.2 or later"
+msgstr "Django 4.2 ou superior"
+
+#: ../../source/quickstart/installation.rst:9
+msgid "Celery 5.3 or later"
+msgstr "Celery 5.3 ou superior"
+
+#: ../../source/quickstart/installation.rst:12
+msgid "Install from PyPI"
+msgstr "Instalar pelo PyPI"
+
+#: ../../source/quickstart/installation.rst:14
+msgid "Most users can install the package with pip:"
+msgstr "A maioria dos usuários pode instalar o pacote com pip:"
+
+#: ../../source/quickstart/installation.rst:20
+#: ../../source/quickstart/installation.rst:35
+msgid "If you use ``uv``:"
+msgstr "Se você usa ``uv``:"
+
+#: ../../source/quickstart/installation.rst:27
+msgid "Install from source"
+msgstr "Instalar pelo código-fonte"
+

@@ -1,0 +1,229 @@
+# Portuguese translations for Django Celery Logs.
+# Copyright (C) 2026, Rafael Henter
+# This file is distributed under the same license as the Django Celery Logs package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Django Celery Logs 0.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-19 14:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt_BR\n"
+"Language-Team: pt_BR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../../CHANGES.rst:2 ../../source/changelog.rst:2
+msgid "Changelog"
+msgstr "Changelog"
+
+#: ../../../CHANGES.rst:4
+msgid "All notable changes to this project will be documented in this file."
+msgstr "Todas as mudanças relevantes deste projeto serão documentadas neste arquivo."
+
+#: ../../../CHANGES.rst:6
+msgid "The project follows semantic versioning while the public API stabilizes."
+msgstr "O projeto segue versionamento semântico enquanto a API pública estabiliza."
+
+#: ../../../CHANGES.rst:9
+msgid "0.2.0"
+msgstr "0.2.0"
+
+#: ../../../CHANGES.rst:11 ../../../CHANGES.rst:57
+msgid "Released on 2026-09-19."
+msgstr "Lançado em 2026-09-19."
+
+#: ../../../CHANGES.rst:14 ../../../CHANGES.rst:60
+msgid "Added"
+msgstr "Adicionado"
+
+#: ../../../CHANGES.rst:16
+msgid ""
+"Added PyPI-ready package metadata, project URLs, classifiers, and package "
+"data configuration."
+msgstr ""
+"Adicionados metadados prontos para PyPI, URLs do projeto, classifiers e "
+"configuração de package data."
+
+#: ../../../CHANGES.rst:18
+msgid ""
+"Added ``uv``-based development workflow with Makefile targets for "
+"dependencies, tests, Django checks, documentation, builds, and releases."
+msgstr ""
+"Adicionado workflow de desenvolvimento baseado em ``uv`` com targets no "
+"Makefile para dependências, testes, checks do Django, documentação, builds e"
+" releases."
+
+#: ../../../CHANGES.rst:20
+msgid ""
+"Added Sphinx documentation source with installation, settings, admin, usage,"
+" development, release, changelog, and API pages."
+msgstr ""
+"Adicionada documentação Sphinx com páginas de instalação, configurações, "
+"admin, uso, desenvolvimento, release, changelog e API."
+
+#: ../../../CHANGES.rst:22
+msgid ""
+"Added documentation dependencies for local docs development: ``sphinx-"
+"autobuild``, ``sphinx-intl``, and ``sphinxjp.themes.basicstrap``."
+msgstr ""
+"Adicionadas dependências de documentação para desenvolvimento local: "
+"``sphinx-autobuild``, ``sphinx-intl`` e ``sphinxjp.themes.basicstrap``."
+
+#: ../../../CHANGES.rst:25
+msgid ""
+"Added badges for PyPI, supported Python versions, license, GitHub Actions, "
+"coverage, documentation, and open-source status."
+msgstr ""
+"Adicionados badges para PyPI, versões de Python suportadas, licença, GitHub "
+"Actions, cobertura, documentação e status open source."
+
+#: ../../../CHANGES.rst:27
+msgid "Added English and Portuguese README files."
+msgstr "Adicionados arquivos README em inglês e português."
+
+#: ../../../CHANGES.rst:30
+msgid "Changed"
+msgstr "Alterado"
+
+#: ../../../CHANGES.rst:32
+msgid "Improved README guidance for installing with both ``pip`` and ``uv``."
+msgstr "Melhorada a orientação do README para instalação com ``pip`` e ``uv``."
+
+#: ../../../CHANGES.rst:33
+msgid ""
+"Clarified required Celery settings: ``CELERY_TASK_IGNORE_RESULT = True`` and"
+" ``CELERY_RESULT_SERIALIZER = \"json\"``."
+msgstr ""
+"Clarificadas as configurações obrigatórias do Celery: "
+"``CELERY_TASK_IGNORE_RESULT = True`` e ``CELERY_RESULT_SERIALIZER = "
+"\"json\"``."
+
+#: ../../../CHANGES.rst:36
+msgid ""
+"Clarified that other Celery result apps, such as ``django_celery_results``, "
+"should not be enabled together with this app."
+msgstr ""
+"Clarificado que outros apps de resultado do Celery, como "
+"``django_celery_results``, não devem ser habilitados junto com este app."
+
+#: ../../../CHANGES.rst:38
+msgid ""
+"Clarified that ``CELERY_RESULT_BACKEND`` and ``CELERY_CACHE_BACKEND`` should"
+" be removed unless another part of the project explicitly requires them."
+msgstr ""
+"Clarificado que ``CELERY_RESULT_BACKEND`` e ``CELERY_CACHE_BACKEND`` devem "
+"ser removidos, a menos que outra parte do projeto exija explicitamente essas"
+" configurações."
+
+#: ../../../CHANGES.rst:40
+msgid ""
+"Removed duplicated ``INSTALLED_APPS`` examples from the README and settings "
+"documentation."
+msgstr ""
+"Removidos exemplos duplicados de ``INSTALLED_APPS`` do README e da "
+"documentação de configurações."
+
+#: ../../../CHANGES.rst:42
+msgid ""
+"Documented that Django automatically loads "
+"``django_celery_logs.apps.CeleryLogsConfig`` when ``django_celery_logs`` is "
+"added to ``INSTALLED_APPS``."
+msgstr ""
+"Documentado que o Django carrega automaticamente "
+"``django_celery_logs.apps.CeleryLogsConfig`` quando ``django_celery_logs`` é"
+" adicionado ao ``INSTALLED_APPS``."
+
+#: ../../../CHANGES.rst:47
+msgid "Packaging"
+msgstr "Empacotamento"
+
+#: ../../../CHANGES.rst:49
+msgid ""
+"Removed legacy requirements-file workflow in favor of ``pyproject.toml`` and"
+" ``uv.lock``."
+msgstr ""
+"Removido o workflow legado com arquivos de requirements em favor de "
+"``pyproject.toml`` e ``uv.lock``."
+
+#: ../../../CHANGES.rst:51
+msgid ""
+"Kept runtime dependencies in package metadata so installs from PyPI include "
+"Django, Celery, and boltons automatically."
+msgstr ""
+"Mantidas as dependências de runtime nos metadados do pacote para que "
+"instalações pelo PyPI incluam Django, Celery e boltons automaticamente."
+
+#: ../../../CHANGES.rst:55
+msgid "0.1.0"
+msgstr "0.1.0"
+
+#: ../../../CHANGES.rst:62
+msgid "Added reusable Django app for storing Celery task execution logs."
+msgstr ""
+"Adicionado app Django reutilizável para armazenar logs de execução de tasks "
+"Celery."
+
+#: ../../../CHANGES.rst:63
+msgid "Added Celery signal handlers for successful and failed task executions."
+msgstr ""
+"Adicionados signal handlers do Celery para execuções de tasks com sucesso e "
+"falha."
+
+#: ../../../CHANGES.rst:64
+msgid ""
+"Added ``TaskLog`` model with task id, task name, queue, worker, args, "
+"kwargs, result, error message, traceback, timestamp, duration, periodic task"
+" flag, and traceback context data."
+msgstr ""
+"Adicionado model ``TaskLog`` com task id, nome da task, fila, worker, args, "
+"kwargs, resultado, mensagem de erro, traceback, timestamp, duração, flag de "
+"task periódica e dados de contexto do traceback."
+
+#: ../../../CHANGES.rst:67
+msgid ""
+"Added ``TaskConfig`` model for configuring task rerun behavior from Django "
+"admin."
+msgstr ""
+"Adicionado model ``TaskConfig`` para configurar comportamento de reexecução "
+"de task pelo Django admin."
+
+#: ../../../CHANGES.rst:69
+msgid ""
+"Added Django admin task log list with filters, search, pagination controls, "
+"auto-refresh, and task rerun action."
+msgstr ""
+"Adicionada listagem de logs de tasks no Django admin com filtros, busca, "
+"controles de paginação, auto-refresh e ação de reexecução."
+
+#: ../../../CHANGES.rst:71
+msgid "Added task detail page with formatted JSON and traceback context."
+msgstr ""
+"Adicionada página de detalhe da task com JSON formatado e contexto de "
+"traceback."
+
+#: ../../../CHANGES.rst:72
+msgid ""
+"Added statistics admin page with charts for throughput, failures, queues, "
+"workers, periodic tasks, slow tasks, and common errors."
+msgstr ""
+"Adicionada página administrativa de estatísticas com gráficos de throughput,"
+" falhas, filas, workers, tasks periódicas, tasks lentas e erros comuns."
+
+#: ../../../CHANGES.rst:74
+msgid "Added ``clear_celery_task_logs`` cleanup task."
+msgstr "Adicionada task de limpeza ``clear_celery_task_logs``."
+
+#: ../../../CHANGES.rst:75
+msgid "Added ``acquire_lock_or_fail`` helper for cache-backed task de-duplication."
+msgstr ""
+"Adicionado helper ``acquire_lock_or_fail`` para evitar duplicação de tasks "
+"usando cache."
+
+#: ../../../CHANGES.rst:76
+msgid "Added test project and initial pytest coverage."
+msgstr "Adicionados projeto de teste e cobertura inicial com pytest."
+

@@ -15,6 +15,13 @@ up task processing. Django Celery Logs keeps the operational history you need in
 your Django database instead: task metadata, structured JSON results, failures,
 durations, queues, workers, and admin statistics.
 
+Documentation
+-------------
+
+The documentation is available on GitHub Pages:
+
+https://rhenter.github.io/django-celery-logs/
+
 Requirements
 ------------
 
@@ -227,17 +234,17 @@ MIT
    :target: https://pypi.org/project/django-celery-logs/
    :alt: License
 
-.. |GitHub Actions Status| image:: https://github.com/rhenter/django-celery-logs/actions/workflows/tests.yml/badge.svg
-   :target: https://github.com/rhenter/django-celery-logs/actions
+.. |GitHub Actions Status| image:: https://github.com/rhenter/django-celery-logs/actions/workflows/ci.yml/badge.svg
+   :target: https://github.com/rhenter/django-celery-logs/actions/workflows/ci.yml
    :alt: GitHub Actions status
 
 .. |Coverage| image:: https://codecov.io/gh/rhenter/django-celery-logs/branch/main/graph/badge.svg
    :target: https://codecov.io/gh/rhenter/django-celery-logs
    :alt: Coverage
 
-.. |Docs| image:: https://readthedocs.org/projects/django-celery-logs/badge/?version=latest
-   :target: https://django-celery-logs.readthedocs.io/en/latest/
-   :alt: Documentation status
+.. |Docs| image:: https://img.shields.io/static/v1?label=DOC&message=GitHub%20Pages&color=blue
+   :target: https://rhenter.github.io/django-celery-logs/
+   :alt: Documentation
 
 .. |Open Source? Yes!| image:: https://badgen.net/badge/Open%20Source%3F/Yes%21/blue
    :target: https://github.com/rhenter/django-celery-logs
