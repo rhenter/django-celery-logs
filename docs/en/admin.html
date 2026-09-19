@@ -44,9 +44,12 @@ queue.</p>
 <ul class="simple">
 <li><p>A shortcut to the statistics dashboard.</p></li>
 <li><p>Configurable page size.</p></li>
-<li><p>Collapsible filters.</p></li>
+<li><p>Collapsible filters that free more screen space for the task list.</p></li>
 <li><p>Auto-refresh controls for 5, 10, 30, and 60 second intervals.</p></li>
 </ul>
+<p>The result preview helps teams scan recent executions directly from the list,
+without opening every task detail page.</p>
+<img alt="Django Celery Logs task list with result preview" src="_images/task-list-preview.png" />
 </section>
 <section id="task-detail">
 <h2>Task detail<a class="headerlink" href="#task-detail" title="Link to this heading">¶</a></h2>
@@ -58,6 +61,10 @@ queue.</p>
 <li><p>Exception type and message for failures.</p></li>
 <li><p>Interactive traceback details.</p></li>
 </ul>
+<p>Failed task details include the full stacktrace and sanitized context variables
+captured at the moment of the error. This makes debugging production failures
+faster because the relevant local state is available alongside the traceback.</p>
+<img alt="Django Celery Logs interactive stacktrace with context variables" src="_images/interactive-stacktrace.png" />
 </section>
 <section id="task-rerun">
 <h2>Task rerun<a class="headerlink" href="#task-rerun" title="Link to this heading">¶</a></h2>
@@ -83,6 +90,10 @@ charts, and tables for operational monitoring:</p>
 <li><p>Slowest tasks.</p></li>
 <li><p>Top error messages.</p></li>
 </ul>
+<p>The dashboard gives teams a quick operational view of Celery throughput,
+failures, queue distribution, workers, periodic tasks, slow tasks, and common
+errors.</p>
+<img alt="Django Celery Logs statistics dashboard" src="_images/statistics.png" />
 </section>
 </section>
 
