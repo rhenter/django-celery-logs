@@ -6,6 +6,13 @@
     margin-right: 0 !important;
 }
 
+/* Django 5+/6 reserves room for the sidebar; reclaim it when filters are hidden. */
+body.hidden-filters #changelist .changelist-form-container:has(#changelist-filter) > div,
+body.hidden-filters #changelist .changelist-form-container > div {
+    max-width: 100%;
+    width: 100%;
+}
+
 /* Self-contained styles: do not depend on admin classes that vary across Django versions. */
 .celery-logs-toggle-filters,
 .auto-refresh-controls button {
@@ -59,37 +66,6 @@
 
 .celery-logs-filters-toggle-slot {
     float: right;
-}
-
-/* Filters rendered below the bar, full width, instead of the sidebar. */
-#changelist-filter.celery-logs-filters {
-    float: none;
-    position: static;
-    width: auto;
-    margin: 0 0 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 24px;
-}
-
-#changelist-filter.celery-logs-filters.hidden {
-    display: none !important;
-}
-
-#changelist-filter.celery-logs-filters > h2 {
-    flex: 0 0 100%;
-    margin: 0;
-}
-
-#changelist-filter.celery-logs-filters > details,
-#changelist-filter.celery-logs-filters > div,
-#changelist-filter.celery-logs-filters > ul {
-    flex: 0 1 220px;
-    min-width: 180px;
 }
 
 /* Paginator: self-contained so it renders the same regardless of admin theme/Django version. */

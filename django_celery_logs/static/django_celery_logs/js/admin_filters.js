@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!filterDiv || !slot) return;
 
-    const bar = slot.closest(".auto-refresh-controls");
+    const storageKey = "admin-filters-hidden";
     const i18n = window.adminFiltersI18n || {
         showFilters: "Show Filters",
         hideFilters: "Hide Filters"
@@ -13,22 +13,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const toggleBtn = document.createElement("button");
     toggleBtn.className = "celery-logs-toggle-filters";
     toggleBtn.type = "button";
-    toggleBtn.textContent = i18n.showFilters;
     slot.appendChild(toggleBtn);
 
-    // Render filters below the gray bar instead of the right-hand sidebar.
-    filterDiv.classList.add("celery-logs-filters", "hidden");
-    bar.parentNode.insertBefore(filterDiv, bar.nextSibling);
-    document.body.classList.add("hidden-filters");
-
-    function setHidden(hidden) {
+    function setHidden(hidden, persist) {
         filterDiv.classList.toggle("hidden", hidden);
         document.body.classList.toggle("hidden-filters", hidden);
         toggleBtn.textContent = hidden ? i18n.showFilters : i18n.hideFilters;
-        localStorage.setItem("admin-filters-hidden", hidden ? "true" : "false");
+        if (persist) localStorage.setItem(storageKey, hidden ? "true" : "false");
     }
 
+    // Filters stay in the default Django sidebar (visible); the button only toggles them.
+    setHidden(localStorage.getItem(storageKey) === "true", false);
+
     toggleBtn.addEventListener("click", function () {
-        setHidden(!filterDiv.classList.contains("hidden"));
+        setHidden(!filterDiv.classList.contains("hidden"), true);
     });
 });

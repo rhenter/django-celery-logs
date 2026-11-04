@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 
 The project follows semantic versioning while the public API stabilizes.
 
+0.2.3
+-----
+
+Released on 2026-11-03.
+
+Changed
+~~~~~~~
+
+* "Show Filters"/"Hide Filters" button now sits at the right end of the Auto
+  Refresh bar and only toggles the standard Django filter sidebar (visible by
+  default, state remembered).
+* Hiding the filters gives the full width back to the list on Django 5/6.
+
+Fixed
+~~~~~
+
+* Removed the layout that rendered filters below the Auto Refresh bar, which
+  was too tall for installations with many tasks.
+
 0.2.2
 -----
 
