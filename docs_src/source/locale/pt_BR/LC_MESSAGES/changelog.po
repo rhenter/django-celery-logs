@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Django Celery Logs 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-19 23:05+0000\n"
+"POT-Creation-Date: 2026-11-04 00:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pt_BR\n"
@@ -32,28 +32,88 @@ msgid "The project follows semantic versioning while the public API stabilizes."
 msgstr "O projeto segue versionamento semântico enquanto a API pública estabiliza."
 
 #: ../../../CHANGES.rst:9
-msgid "0.2.1"
-msgstr "0.2.1"
+msgid "0.2.3"
+msgstr "0.2.1""0.2.3"
 
-#: ../../../CHANGES.rst:11 ../../../CHANGES.rst:32 ../../../CHANGES.rst:78
-msgid "Released on 2026-09-19."
-msgstr "Lançado em 2026-09-19."
+#: ../../../CHANGES.rst:11 ../../../CHANGES.rst:30
+msgid "Released on 2026-11-03."
+msgstr "Lançado "Lançado em 2026-11-03."
 
-#: ../../../CHANGES.rst:14 ../../../CHANGES.rst:51
+#: ../../../CHANGES.rst:14 ../../../CHANGES.rst:40 ../../../CHANGES.rst:54
+#: ../../../CHANGES.rst:91
 msgid "Changed"
 msgstr "Alterado"
 
 #: ../../../CHANGES.rst:16
+msgid ""
+"\"Show Filters\"/\"Hide Filters\" button now sits at the right end of the"
+" Auto Refresh bar and only toggles the standard Django filter sidebar "
+"(visible by default, state remembered)."
+msgstr "O botão \"Show Filters\"/\"Hide Filters\" agora fica na extremidade direita da barra de Auto Refresh e apenas alterna a barra lateral de filtros padrão do Django (visível por padrão, com o estado lembrado)."
+
+#: ../../../CHANGES.rst:19
+msgid "Hiding the filters gives the full width back to the list on Django 5/6."
+msgstr "Ocultar os filtros devolve a largura total à listagem no Django 5/6."
+
+#: ../../../CHANGES.rst:22 ../../../CHANGES.rst:33
+msgid "Fixed"
+msgstr "Corrigido"
+
+#: ../../../CHANGES.rst:24
+msgid ""
+"Removed the layout that rendered filters below the Auto Refresh bar, "
+"which was too tall for installations with many tasks."
+msgstr "Removido o layout que exibia os filtros abaixo da barra de Auto Refresh, que ficava muito alto em instalações com muitas tarefas."
+
+#: ../../../CHANGES.rst:28
+msgid "0.2.2"
+msgstr "0.2.1""0.2.2"
+
+#: ../../../CHANGES.rst:35
+msgid ""
+"Fixed admin changelist styling on Django 5/6: the \"Show Filters\" "
+"button, Auto Refresh bar and paginator no longer depend on admin/theme "
+"classes (``historylink``, ``.visually-hidden``) that differ across Django"
+" versions."
+msgstr "Corrigido o estilo da listagem do admin no Django 5/6: o botão \"Show Filters\", a barra de Auto Refresh e a paginação não dependem mais de classes do admin/tema (``historylink``, ``.visually-hidden``) que variam entre versões do Django."
+
+#: ../../../CHANGES.rst:42
+msgid "Moved inline changelist styles into ``admin_filters.css``."
+msgstr "Estilos inline da listagem movidos para ``admin_filters.css``."
+
+#: ../../../CHANGES.rst:43
+msgid ""
+"\"Show Filters\" button now sits at the right end of the Auto Refresh bar"
+" and filters open below it instead of in the sidebar."
+msgstr ""
+"O botão \"Show Filters\" agora fica na extremidade direita da barra de "
+"Auto Refresh e os filtros abrem abaixo dela, em vez de na barra lateral."
+
+#: ../../../CHANGES.rst:45
+msgid ""
+"Result column only pretty-prints dict/list results; empty results render "
+"nothing and other values are shown as plain escaped text."
+msgstr "A coluna de resultado só formata dict/list em JSON; resultados vazios não exibem nada e os demais valores aparecem como texto simples escapado."
+
+#: ../../../CHANGES.rst:49
+msgid "0.2.1"
+msgstr "0.2.1"
+
+#: ../../../CHANGES.rst:51 ../../../CHANGES.rst:72 ../../../CHANGES.rst:118
+msgid "Released on 2026-09-19."
+msgstr "Lançado em 2026-09-19."
+
+#: ../../../CHANGES.rst:56
 msgid ""
 "Updated the PyPI long description with the latest README content, "
 "including GitHub Pages documentation links and Portuguese README "
 "guidance."
 msgstr ""
 "Atualizada a long description do PyPI com o conteudo mais recente do "
-"README, incluindo links da documentacao no GitHub Pages e orientacao para "
-"o README em portugues."
+"README, incluindo links da documentacao no GitHub Pages e orientacao para"
+" o README em portugues."
 
-#: ../../../CHANGES.rst:18
+#: ../../../CHANGES.rst:58
 msgid ""
 "Improved README and documentation previews with Task List, Interactive "
 "Stacktrace, and Statistics Dashboard screenshots."
@@ -61,38 +121,38 @@ msgstr ""
 "Melhorados os previews do README e da documentacao com screenshots da "
 "Task List, Interactive Stacktrace e Statistics Dashboard."
 
-#: ../../../CHANGES.rst:20
+#: ../../../CHANGES.rst:60
 msgid "Updated bilingual documentation output and GitHub Pages publishing assets."
 msgstr ""
 "Atualizada a saida da documentacao bilingue e os assets de publicacao do "
 "GitHub Pages."
 
-#: ../../../CHANGES.rst:23
+#: ../../../CHANGES.rst:63
 msgid "Testing"
 msgstr "Testes"
 
-#: ../../../CHANGES.rst:25
+#: ../../../CHANGES.rst:65
 msgid ""
 "Added broader test coverage for admin helpers, Celery log cleanup, "
 "widgets, template filters, cache lock handling, and task log creation."
 msgstr ""
 "Adicionada cobertura de testes mais ampla para helpers do admin, limpeza "
-"de logs do Celery, widgets, template filters, controle de lock por cache e "
-"criacao de logs de tasks."
+"de logs do Celery, widgets, template filters, controle de lock por cache "
+"e criacao de logs de tasks."
 
-#: ../../../CHANGES.rst:27
+#: ../../../CHANGES.rst:67
 msgid "Added Codecov upload support to the GitHub Actions workflow."
 msgstr "Adicionado suporte a upload para Codecov no workflow do GitHub Actions."
 
-#: ../../../CHANGES.rst:30
+#: ../../../CHANGES.rst:70
 msgid "0.2.0"
 msgstr "0.2.0"
 
-#: ../../../CHANGES.rst:35 ../../../CHANGES.rst:81
+#: ../../../CHANGES.rst:75 ../../../CHANGES.rst:121
 msgid "Added"
 msgstr "Adicionado"
 
-#: ../../../CHANGES.rst:37
+#: ../../../CHANGES.rst:77
 msgid ""
 "Added PyPI-ready package metadata, project URLs, classifiers, and package"
 " data configuration."
@@ -100,7 +160,7 @@ msgstr ""
 "Adicionados metadados prontos para PyPI, URLs do projeto, classifiers e "
 "configuração de package data."
 
-#: ../../../CHANGES.rst:39
+#: ../../../CHANGES.rst:79
 msgid ""
 "Added ``uv``-based development workflow with Makefile targets for "
 "dependencies, tests, Django checks, documentation, builds, and releases."
@@ -109,7 +169,7 @@ msgstr ""
 "Makefile para dependências, testes, checks do Django, documentação, "
 "builds e releases."
 
-#: ../../../CHANGES.rst:41
+#: ../../../CHANGES.rst:81
 msgid ""
 "Added Sphinx documentation source with installation, settings, admin, "
 "usage, development, release, changelog, and API pages."
@@ -117,7 +177,7 @@ msgstr ""
 "Adicionada documentação Sphinx com páginas de instalação, configurações, "
 "admin, uso, desenvolvimento, release, changelog e API."
 
-#: ../../../CHANGES.rst:43
+#: ../../../CHANGES.rst:83
 msgid ""
 "Added documentation dependencies for local docs development: ``sphinx-"
 "autobuild``, ``sphinx-intl``, and ``sphinxjp.themes.basicstrap``."
@@ -125,7 +185,7 @@ msgstr ""
 "Adicionadas dependências de documentação para desenvolvimento local: "
 "``sphinx-autobuild``, ``sphinx-intl`` e ``sphinxjp.themes.basicstrap``."
 
-#: ../../../CHANGES.rst:46
+#: ../../../CHANGES.rst:86
 msgid ""
 "Added badges for PyPI, supported Python versions, license, GitHub "
 "Actions, coverage, documentation, and open-source status."
@@ -133,15 +193,15 @@ msgstr ""
 "Adicionados badges para PyPI, versões de Python suportadas, licença, "
 "GitHub Actions, cobertura, documentação e status open source."
 
-#: ../../../CHANGES.rst:48
+#: ../../../CHANGES.rst:88
 msgid "Added English and Portuguese README files."
 msgstr "Adicionados arquivos README em inglês e português."
 
-#: ../../../CHANGES.rst:53
+#: ../../../CHANGES.rst:93
 msgid "Improved README guidance for installing with both ``pip`` and ``uv``."
 msgstr "Melhorada a orientação do README para instalação com ``pip`` e ``uv``."
 
-#: ../../../CHANGES.rst:54
+#: ../../../CHANGES.rst:94
 msgid ""
 "Clarified required Celery settings: ``CELERY_TASK_IGNORE_RESULT = True`` "
 "and ``CELERY_RESULT_SERIALIZER = \"json\"``."
@@ -150,7 +210,7 @@ msgstr ""
 "``CELERY_TASK_IGNORE_RESULT = True`` e ``CELERY_RESULT_SERIALIZER = "
 "\"json\"``."
 
-#: ../../../CHANGES.rst:57
+#: ../../../CHANGES.rst:97
 msgid ""
 "Clarified that other Celery result apps, such as "
 "``django_celery_results``, should not be enabled together with this app."
@@ -158,7 +218,7 @@ msgstr ""
 "Clarificado que outros apps de resultado do Celery, como "
 "``django_celery_results``, não devem ser habilitados junto com este app."
 
-#: ../../../CHANGES.rst:59
+#: ../../../CHANGES.rst:99
 msgid ""
 "Clarified that ``CELERY_RESULT_BACKEND`` and ``CELERY_CACHE_BACKEND`` "
 "should be removed unless another part of the project explicitly requires "
@@ -168,7 +228,7 @@ msgstr ""
 "devem ser removidos, a menos que outra parte do projeto exija "
 "explicitamente essas configurações."
 
-#: ../../../CHANGES.rst:61
+#: ../../../CHANGES.rst:101
 msgid ""
 "Removed duplicated ``INSTALLED_APPS`` examples from the README and "
 "settings documentation."
@@ -176,7 +236,7 @@ msgstr ""
 "Removidos exemplos duplicados de ``INSTALLED_APPS`` do README e da "
 "documentação de configurações."
 
-#: ../../../CHANGES.rst:63
+#: ../../../CHANGES.rst:103
 msgid ""
 "Documented that Django automatically loads "
 "``django_celery_logs.apps.CeleryLogsConfig`` when ``django_celery_logs`` "
@@ -186,11 +246,11 @@ msgstr ""
 "``django_celery_logs.apps.CeleryLogsConfig`` quando "
 "``django_celery_logs`` é adicionado ao ``INSTALLED_APPS``."
 
-#: ../../../CHANGES.rst:68
+#: ../../../CHANGES.rst:108
 msgid "Packaging"
 msgstr "Empacotamento"
 
-#: ../../../CHANGES.rst:70
+#: ../../../CHANGES.rst:110
 msgid ""
 "Removed legacy requirements-file workflow in favor of ``pyproject.toml`` "
 "and ``uv.lock``."
@@ -198,7 +258,7 @@ msgstr ""
 "Removido o workflow legado com arquivos de requirements em favor de "
 "``pyproject.toml`` e ``uv.lock``."
 
-#: ../../../CHANGES.rst:72
+#: ../../../CHANGES.rst:112
 msgid ""
 "Kept runtime dependencies in package metadata so installs from PyPI "
 "include Django, Celery, and boltons automatically."
@@ -206,23 +266,23 @@ msgstr ""
 "Mantidas as dependências de runtime nos metadados do pacote para que "
 "instalações pelo PyPI incluam Django, Celery e boltons automaticamente."
 
-#: ../../../CHANGES.rst:76
+#: ../../../CHANGES.rst:116
 msgid "0.1.0"
 msgstr "0.1.0"
 
-#: ../../../CHANGES.rst:83
+#: ../../../CHANGES.rst:123
 msgid "Added reusable Django app for storing Celery task execution logs."
 msgstr ""
 "Adicionado app Django reutilizável para armazenar logs de execução de "
 "tasks Celery."
 
-#: ../../../CHANGES.rst:84
+#: ../../../CHANGES.rst:124
 msgid "Added Celery signal handlers for successful and failed task executions."
 msgstr ""
 "Adicionados signal handlers do Celery para execuções de tasks com sucesso"
 " e falha."
 
-#: ../../../CHANGES.rst:85
+#: ../../../CHANGES.rst:125
 msgid ""
 "Added ``TaskLog`` model with task id, task name, queue, worker, args, "
 "kwargs, result, error message, traceback, timestamp, duration, periodic "
@@ -232,7 +292,7 @@ msgstr ""
 "args, kwargs, resultado, mensagem de erro, traceback, timestamp, duração,"
 " flag de task periódica e dados de contexto do traceback."
 
-#: ../../../CHANGES.rst:88
+#: ../../../CHANGES.rst:128
 msgid ""
 "Added ``TaskConfig`` model for configuring task rerun behavior from "
 "Django admin."
@@ -240,7 +300,7 @@ msgstr ""
 "Adicionado model ``TaskConfig`` para configurar comportamento de "
 "reexecução de task pelo Django admin."
 
-#: ../../../CHANGES.rst:90
+#: ../../../CHANGES.rst:130
 msgid ""
 "Added Django admin task log list with filters, search, pagination "
 "controls, auto-refresh, and task rerun action."
@@ -248,13 +308,13 @@ msgstr ""
 "Adicionada listagem de logs de tasks no Django admin com filtros, busca, "
 "controles de paginação, auto-refresh e ação de reexecução."
 
-#: ../../../CHANGES.rst:92
+#: ../../../CHANGES.rst:132
 msgid "Added task detail page with formatted JSON and traceback context."
 msgstr ""
 "Adicionada página de detalhe da task com JSON formatado e contexto de "
 "traceback."
 
-#: ../../../CHANGES.rst:93
+#: ../../../CHANGES.rst:133
 msgid ""
 "Added statistics admin page with charts for throughput, failures, queues,"
 " workers, periodic tasks, slow tasks, and common errors."
@@ -263,11 +323,11 @@ msgstr ""
 "throughput, falhas, filas, workers, tasks periódicas, tasks lentas e "
 "erros comuns."
 
-#: ../../../CHANGES.rst:95
+#: ../../../CHANGES.rst:135
 msgid "Added ``clear_celery_task_logs`` cleanup task."
 msgstr "Adicionada task de limpeza ``clear_celery_task_logs``."
 
-#: ../../../CHANGES.rst:96
+#: ../../../CHANGES.rst:136
 msgid ""
 "Added ``acquire_lock_or_fail`` helper for cache-backed task de-"
 "duplication."
@@ -275,6 +335,7 @@ msgstr ""
 "Adicionado helper ``acquire_lock_or_fail`` para evitar duplicação de "
 "tasks usando cache."
 
-#: ../../../CHANGES.rst:97
+#: ../../../CHANGES.rst:137
 msgid "Added test project and initial pytest coverage."
 msgstr "Adicionados projeto de teste e cobertura inicial com pytest."
+

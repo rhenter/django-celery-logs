@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Changelog &#8212; Documentação Django Celery Logs 0.2.1</title>
+    <title>Changelog &#8212; Documentação Django Celery Logs 0.2.3</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
-    <script src="_static/documentation_options.js?v=4b365a1a"></script>
+    <script src="_static/documentation_options.js?v=6eba222e"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/translations.js?v=71a39b36"></script>
@@ -41,10 +41,45 @@
 <p>Todas as mudanças relevantes deste projeto serão documentadas neste arquivo.</p>
 <p>O projeto segue versionamento semântico enquanto a API pública estabiliza.</p>
 <section id="id2">
-<h2>0.2.1<a class="headerlink" href="#id2" title="Link para este cabeçalho">¶</a></h2>
-<p>Lançado em 2026-09-19.</p>
+<h2>0.2.1””0.2.3<a class="headerlink" href="#id2" title="Link para este cabeçalho">¶</a></h2>
+<p>Lançado “Lançado em 2026-11-03.</p>
 <section id="changed">
 <h3>Alterado<a class="headerlink" href="#changed" title="Link para este cabeçalho">¶</a></h3>
+<ul class="simple">
+<li><p>O botão “Show Filters”/”Hide Filters” agora fica na extremidade direita da barra de Auto Refresh e apenas alterna a barra lateral de filtros padrão do Django (visível por padrão, com o estado lembrado).</p></li>
+<li><p>Ocultar os filtros devolve a largura total à listagem no Django 5/6.</p></li>
+</ul>
+</section>
+<section id="fixed">
+<h3>Corrigido<a class="headerlink" href="#fixed" title="Link para este cabeçalho">¶</a></h3>
+<ul class="simple">
+<li><p>Removido o layout que exibia os filtros abaixo da barra de Auto Refresh, que ficava muito alto em instalações com muitas tarefas.</p></li>
+</ul>
+</section>
+</section>
+<section id="id3">
+<h2>0.2.1””0.2.2<a class="headerlink" href="#id3" title="Link para este cabeçalho">¶</a></h2>
+<p>Lançado “Lançado em 2026-11-03.</p>
+<section id="id4">
+<h3>Corrigido<a class="headerlink" href="#id4" title="Link para este cabeçalho">¶</a></h3>
+<ul class="simple">
+<li><p>Corrigido o estilo da listagem do admin no Django 5/6: o botão “Show Filters”, a barra de Auto Refresh e a paginação não dependem mais de classes do admin/tema (<code class="docutils literal notranslate"><span class="pre">historylink</span></code>, <code class="docutils literal notranslate"><span class="pre">.visually-hidden</span></code>) que variam entre versões do Django.</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>Alterado<a class="headerlink" href="#id5" title="Link para este cabeçalho">¶</a></h3>
+<ul class="simple">
+<li><p>Estilos inline da listagem movidos para <code class="docutils literal notranslate"><span class="pre">admin_filters.css</span></code>.</p></li>
+<li><p>O botão “Show Filters” agora fica na extremidade direita da barra de Auto Refresh e os filtros abrem abaixo dela, em vez de na barra lateral.</p></li>
+<li><p>A coluna de resultado só formata dict/list em JSON; resultados vazios não exibem nada e os demais valores aparecem como texto simples escapado.</p></li>
+</ul>
+</section>
+</section>
+<section id="id6">
+<h2>0.2.1<a class="headerlink" href="#id6" title="Link para este cabeçalho">¶</a></h2>
+<p>Lançado em 2026-09-19.</p>
+<section id="id7">
+<h3>Alterado<a class="headerlink" href="#id7" title="Link para este cabeçalho">¶</a></h3>
 <ul class="simple">
 <li><p>Atualizada a long description do PyPI com o conteudo mais recente do README, incluindo links da documentacao no GitHub Pages e orientacao para o README em portugues.</p></li>
 <li><p>Melhorados os previews do README e da documentacao com screenshots da Task List, Interactive Stacktrace e Statistics Dashboard.</p></li>
@@ -59,8 +94,8 @@
 </ul>
 </section>
 </section>
-<section id="id3">
-<h2>0.2.0<a class="headerlink" href="#id3" title="Link para este cabeçalho">¶</a></h2>
+<section id="id8">
+<h2>0.2.0<a class="headerlink" href="#id8" title="Link para este cabeçalho">¶</a></h2>
 <p>Lançado em 2026-09-19.</p>
 <section id="added">
 <h3>Adicionado<a class="headerlink" href="#added" title="Link para este cabeçalho">¶</a></h3>
@@ -73,8 +108,8 @@
 <li><p>Adicionados arquivos README em inglês e português.</p></li>
 </ul>
 </section>
-<section id="id4">
-<h3>Alterado<a class="headerlink" href="#id4" title="Link para este cabeçalho">¶</a></h3>
+<section id="id9">
+<h3>Alterado<a class="headerlink" href="#id9" title="Link para este cabeçalho">¶</a></h3>
 <ul class="simple">
 <li><p>Melhorada a orientação do README para instalação com <code class="docutils literal notranslate"><span class="pre">pip</span></code> e <code class="docutils literal notranslate"><span class="pre">uv</span></code>.</p></li>
 <li><p>Clarificadas as configurações obrigatórias do Celery: <code class="docutils literal notranslate"><span class="pre">CELERY_TASK_IGNORE_RESULT</span> <span class="pre">=</span> <span class="pre">True</span></code> e <code class="docutils literal notranslate"><span class="pre">CELERY_RESULT_SERIALIZER</span> <span class="pre">=</span> <span class="pre">&quot;json&quot;</span></code>.</p></li>
@@ -92,11 +127,11 @@
 </ul>
 </section>
 </section>
-<section id="id5">
-<h2>0.1.0<a class="headerlink" href="#id5" title="Link para este cabeçalho">¶</a></h2>
+<section id="id10">
+<h2>0.1.0<a class="headerlink" href="#id10" title="Link para este cabeçalho">¶</a></h2>
 <p>Lançado em 2026-09-19.</p>
-<section id="id6">
-<h3>Adicionado<a class="headerlink" href="#id6" title="Link para este cabeçalho">¶</a></h3>
+<section id="id11">
+<h3>Adicionado<a class="headerlink" href="#id11" title="Link para este cabeçalho">¶</a></h3>
 <ul class="simple">
 <li><p>Adicionado app Django reutilizável para armazenar logs de execução de tasks Celery.</p></li>
 <li><p>Adicionados signal handlers do Celery para execuções de tasks com sucesso e falha.</p></li>
