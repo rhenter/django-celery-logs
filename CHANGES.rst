@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 
 The project follows semantic versioning while the public API stabilizes.
 
+0.2.2
+-----
+
+Released on 2026-11-03.
+
+Fixed
+~~~~~
+
+* Fixed admin changelist styling on Django 5/6: the "Show Filters" button,
+  Auto Refresh bar and paginator no longer depend on admin/theme classes
+  (``historylink``, ``.visually-hidden``) that differ across Django versions.
+
+Changed
+~~~~~~~
+
+* Moved inline changelist styles into ``admin_filters.css``.
+* "Show Filters" button now sits at the right end of the Auto Refresh bar and
+  filters open below it instead of in the sidebar.
+* Result column only pretty-prints dict/list results; empty results render
+  nothing and other values are shown as plain escaped text.
+
 0.2.1
 -----
 

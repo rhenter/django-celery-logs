@@ -5,3 +5,154 @@
 .filtered.hidden-filters #changelist {
     margin-right: 0 !important;
 }
+
+/* Self-contained styles: do not depend on admin classes that vary across Django versions. */
+.celery-logs-toggle-filters,
+.auto-refresh-controls button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.celery-logs-toggle-filters {
+    margin-bottom: 10px;
+}
+
+.auto-refresh-controls {
+    margin: 10px 0;
+    padding: 10px;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    clear: both;
+}
+
+.auto-refresh-controls label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.auto-refresh-controls select {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.auto-refresh-controls button {
+    margin-right: 5px;
+}
+
+.auto-refresh-controls button.active {
+    background: #417690;
+    border-color: #417690;
+    color: #fff;
+}
+
+.auto-refresh-status {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.celery-logs-filters-toggle-slot {
+    float: right;
+}
+
+/* Filters rendered below the bar, full width, instead of the sidebar. */
+#changelist-filter.celery-logs-filters {
+    float: none;
+    position: static;
+    width: auto;
+    margin: 0 0 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+}
+
+#changelist-filter.celery-logs-filters.hidden {
+    display: none !important;
+}
+
+#changelist-filter.celery-logs-filters > h2 {
+    flex: 0 0 100%;
+    margin: 0;
+}
+
+#changelist-filter.celery-logs-filters > details,
+#changelist-filter.celery-logs-filters > div,
+#changelist-filter.celery-logs-filters > ul {
+    flex: 0 1 220px;
+    min-width: 180px;
+}
+
+/* Paginator: self-contained so it renders the same regardless of admin theme/Django version. */
+.model-tasklog .paginator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 0;
+    margin: 0;
+    font-size: 13px;
+    line-height: 22px;
+    border-top: 1px solid #ddd;
+    color: #666;
+}
+
+.model-tasklog .paginator h2,
+.model-tasklog .paginator .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.model-tasklog .paginator ul {
+    display: inline-flex;
+    gap: 4px;
+    margin: 0 6px 0 0;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+}
+
+.model-tasklog .paginator ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.model-tasklog .paginator a {
+    display: inline-block;
+    padding: 2px 6px;
+    text-decoration: none;
+}
+
+.model-tasklog .paginator a:not(.showall) {
+    background: #f1f1f1;
+    color: #333;
+}
+
+.model-tasklog .paginator a[aria-current="page"],
+.model-tasklog .paginator .this-page {
+    background: transparent;
+    color: #666;
+    font-weight: bold;
+}
+
+.model-tasklog .paginator a:not([aria-current="page"], .showall):hover {
+    background: #417690;
+    color: #fff;
+}

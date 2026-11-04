@@ -4,45 +4,6 @@
 {% block extrastyle %}
     {{ block.super }}
     <link rel="stylesheet" href="{% static 'django_celery_logs/css/admin_filters.css' %}">
-    <style>
-        .auto-refresh-controls {
-            margin: 10px 0;
-            padding: 10px;
-            background: #f8f8f8;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        .auto-refresh-controls label {
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        .auto-refresh-controls select {
-            margin-right: 10px;
-            padding: 5px;
-        }
-
-        .auto-refresh-controls button {
-            padding: 5px 10px;
-            margin-right: 5px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            background: #fff;
-            cursor: pointer;
-        }
-
-        .auto-refresh-controls button.active {
-            background: #417690;
-            color: white;
-        }
-
-        .auto-refresh-status {
-            margin-left: 10px;
-            font-size: 12px;
-            color: #666;
-        }
-    </style>
 {% endblock %}
 
 {% block extrahead %}
@@ -77,6 +38,7 @@
         <button type="button" id="start-refresh">{% trans "Start Auto Refresh" %}</button>
         <button type="button" id="stop-refresh">{% trans "Stop Auto Refresh" %}</button>
         <span class="auto-refresh-status" id="refresh-status">{% trans "Auto refresh is disabled" %}</span>
+        <span class="celery-logs-filters-toggle-slot" id="filters-toggle-slot"></span>
     </div>
 {% endblock %}
 

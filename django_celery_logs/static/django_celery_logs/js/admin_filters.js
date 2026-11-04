@@ -1,35 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const toggleBtn = document.createElement("button");
     const filterDiv = document.getElementById("changelist-filter");
+    const slot = document.getElementById("filters-toggle-slot");
 
-    if (!filterDiv) return;
+    if (!filterDiv || !slot) return;
 
+    const bar = slot.closest(".auto-refresh-controls");
     const i18n = window.adminFiltersI18n || {
         showFilters: "Show Filters",
         hideFilters: "Hide Filters"
     };
 
-    toggleBtn.className = "historylink";
-    toggleBtn.textContent = i18n.showFilters;
+    const toggleBtn = document.createElement("button");
+    toggleBtn.className = "celery-logs-toggle-filters";
     toggleBtn.type = "button";
+    toggleBtn.textContent = i18n.showFilters;
+    slot.appendChild(toggleBtn);
 
-    filterDiv.classList.add("hidden");
+    // Render filters below the gray bar instead of the right-hand sidebar.
+    filterDiv.classList.add("celery-logs-filters", "hidden");
+    bar.parentNode.insertBefore(filterDiv, bar.nextSibling);
     document.body.classList.add("hidden-filters");
-    filterDiv.parentNode.insertBefore(toggleBtn, filterDiv);
+
+    function setHidden(hidden) {
+        filterDiv.classList.toggle("hidden", hidden);
+        document.body.classList.toggle("hidden-filters", hidden);
+        toggleBtn.textContent = hidden ? i18n.showFilters : i18n.hideFilters;
+        localStorage.setItem("admin-filters-hidden", hidden ? "true" : "false");
+    }
 
     toggleBtn.addEventListener("click", function () {
-        const currentlyHidden = filterDiv.classList.contains("hidden");
-
-        if (currentlyHidden) {
-            filterDiv.classList.remove("hidden");
-            document.body.classList.remove("hidden-filters");
-            toggleBtn.textContent = i18n.hideFilters;
-            localStorage.setItem("admin-filters-hidden", "false");
-        } else {
-            filterDiv.classList.add("hidden");
-            document.body.classList.add("hidden-filters");
-            toggleBtn.textContent = i18n.showFilters;
-            localStorage.setItem("admin-filters-hidden", "true");
-        }
+        setHidden(!filterDiv.classList.contains("hidden"));
     });
 });

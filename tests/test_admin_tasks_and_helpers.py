@@ -326,3 +326,28 @@ def test_task_log_statistics_admin_builds_dashboard_context(monkeypatch):
     assert context["top_tasks"][0]["task_name"] == "tests.stats"
     assert context["slowest_tasks"][0]["avg_duration"] == 21
     assert '"success_failure_stats"' in context["chart_data"]
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize("result", [None, "", {}, []])
+def test_task_log_admin_empty_result_renders_nothing(result):
+    model_admin = TaskLogAdmin(TaskLog, AdminSite())
+    task_log = TaskLog.objects.create(
+        task_id=f"empty-{result!r}", task_name="t", worker="w", status=TaskLog.Status.SUCCESS, result=result
+    )
+
+    assert model_admin.result_snippet(task_log) == ""
+    assert model_admin.result_pretty(task_log) == ""
+
+
+@pytest.mark.django_db
+def test_task_log_admin_non_json_result_is_plain_text():
+    model_admin = TaskLogAdmin(TaskLog, AdminSite())
+    task_log = TaskLog.objects.create(
+        task_id="plain-result", task_name="t", worker="w", status=TaskLog.Status.SUCCESS, result="done <ok>"
+    )
+
+    snippet = model_admin.result_snippet(task_log)
+    assert "done &lt;ok&gt;" in snippet
+    assert "<details" not in snippet
+    assert "<details" not in model_admin.result_pretty(task_log)

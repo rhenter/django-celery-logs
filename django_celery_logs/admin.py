@@ -8,7 +8,7 @@ from django.db.models import Avg, Count, JSONField, Max, Min, Q
 from django.http import HttpResponseRedirect
 from django.urls import path, reverse
 from django.utils import timezone
-from django.utils.html import escape
+from django.utils.html import escape, format_html
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
@@ -156,9 +156,18 @@ class TaskLogAdmin(admin.ModelAdmin):
 
     exc_msg.short_description = _("Exception Message")
 
+    @staticmethod
+    def _is_structured(data):
+        return isinstance(data, (dict, list)) and bool(data)
+
     def result_pretty(self, obj):
-        data = obj.result or {}
-        safe = escape(json.dumps(data, indent=2, sort_keys=True, default=str))
+        data = obj.result
+        if data in (None, "", {}, []):
+            return ""
+        if not self._is_structured(data):
+            return format_html('<pre style="white-space:pre-wrap;word-break:break-all;">{}</pre>', str(data))
+
+        safe = escape(json.dumps(sort_dict_recursively(data), indent=2, sort_keys=True, default=str))
         return mark_safe(
             '<pre style="background:#f7f7f7;padding:8px;border:1px solid #ddd;'
             'white-space:pre-wrap;word-break:break-all;max-height:500px;overflow:auto;">'
@@ -168,9 +177,14 @@ class TaskLogAdmin(admin.ModelAdmin):
     result_pretty.short_description = _("Result")
 
     def result_snippet(self, obj):
-        data = obj.result or {}
-        if not data and obj.status == TaskLog.Status.FAILURE:
+        data = obj.result
+        if data in (None, "", {}, []) and obj.status == TaskLog.Status.FAILURE and obj.error_message:
             data = {"error": obj.error_message}
+
+        if data in (None, "", {}, []):
+            return ""
+        if not self._is_structured(data):
+            return format_html('<span style="white-space:pre-wrap;word-break:break-word;">{}</span>', str(data))
 
         data = sort_dict_recursively(data)
         compact = escape(json.dumps(data, separators=(",", ":"), default=str))
